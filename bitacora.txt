@@ -1,0 +1,37 @@
+11 de octubre de 2016
+    reunión:
+        presentes:
+            Christian
+            Luis
+            Alonso
+        Ausente:
+            Mario(justificado)
+
+            definimos:
+                vamos a usar git:
+                    alonso es el encargardo de crear el repositorio
+                    SIEMPRE SE EJECUTA LO SIGUIENTE:
+                        git pull
+                        git add
+                        git commit
+                        git push
+                    Cada commit con un comentario significativo y conciso de lo que hizo
+                como vamos a llevar la bitácora
+                    .txt en repositorio
+                nombres de las señales:
+                    nombre_procedencia_destino
+                orden de los bits:
+                    [(n-1):0]
+                Documentación:
+                    comentarios a cada uno de los módulos
+                Reuniones:
+                    periódicas los martes 11am
+                orden de entradas y salidas de los módulos:
+                    conductuales: primero entradas y luego salidas
+                    probadores: primero salidas y luego entradas}
+                REGLA:
+                    definir todos los wires y regs y ponerles los nombres con la misma regla de los modulos para ponerles el nombre
+
+                usuarios de github:
+                    luismoramora94
+                    alonso193
