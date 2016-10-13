@@ -28,10 +28,12 @@
                     periódicas los martes 11am
                 orden de entradas y salidas de los módulos:
                     conductuales: primero entradas y luego salidas
-                    probadores: primero salidas y luego entradas}
+                    probadores: primero salidas y luego entradas
                 REGLA:
                     definir todos los wires y regs y ponerles los nombres con la misma regla de los modulos para ponerles el nombre
 
                 usuarios de github:
                     luismoramora94
                     alonso193
+                    crisguso
+                    mario23285
