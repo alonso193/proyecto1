@@ -37,3 +37,18 @@
                     alonso193
                     crisguso
                     mario23285
+
+14 de octubre de 2016
+    reunión:
+        presentes:
+            Cristian
+            Luis
+            Alonso
+            Mario
+
+	 definimos:
+		división de cada bloque del SD Host.
+		Cristian REG
+            	Luis DMA
+            	Alonso CMD
+            	Mario DATA
