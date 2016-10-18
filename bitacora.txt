@@ -45,10 +45,24 @@
             Luis
             Alonso
             Mario
-
 	 definimos:
 		división de cada bloque del SD Host.
 		Cristian REG
             	Luis DMA
             	Alonso CMD
             	Mario DATA
+
+18 de Octubre de 2016
+    reunión:
+        presentes:
+            Christian
+            Luis
+            Alonso
+        Ausente:
+            Mario(justificado)
+        Se acordó:
+            Hacer pinout de cada uno de los bloques, explicando de donde debería, o de donde se cree que debe venir cada señal y hacia donde
+            se cree o va cada señal.
+            Hacer una tabla con las siguientes columnas:
+                Nombre de Señal : Entradas : Salidas : procedencia : destino
+                    Se indica si son entradas o si son salidas marcando en el respectivo espacio.
