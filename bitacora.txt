@@ -66,3 +66,32 @@
             Hacer una tabla con las siguientes columnas:
                 Nombre de Señal : Entradas : Salidas : procedencia : destino
                     Se indica si son entradas o si son salidas marcando en el respectivo espacio.
+
+28 de octubre de 2016
+	reunión en horas de clase:
+		presentes:
+			Cristian
+			Mario
+		
+	tema:
+		presentación de ideas al profesor.
+		evacuación de dudas.
+
+	definimos:
+		quienes se mantienen activos en el proyecto a petición
+		del profesor, todos activos. 
+
+1 de noviembre de 2016
+	reunión en horas de clase
+		presentes:
+			Cristian
+			Luis
+			Mario
+			Alonso
+	
+	tema:
+		Presentación del avance del bloque de registers.
+		Presentación de código de registers al profesor.
+
+	link del esquema de registros:
+		https://docs.google.com/spreadsheets/d/1Ke_AAxDZ1lh2pk6SkSITdIdJbY1iyZVdYj9h7hYouh4/edit?usp=sharing
