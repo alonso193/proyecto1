@@ -32,7 +32,7 @@ notas:
 _____________________________________________________________________________________
 Nombre de Señal              : Entradas : Salidas : procedencia : destino
 
-CLK                                x       -         Host          DATA_PHYSICAL
+SD_CLK                             x       -         SD_CARD       DATA_PHYSICAL
 RESET_L                            x       -         Host          DATA_PHYSICAL
 strobe_IN_DATA_Phy                 x       -         DATA          DATA_PHYSICAL
 ack_IN_DATA_Phy                    x       -         DATA          DATA_PHYSICAL
@@ -45,7 +45,6 @@ transmission_complete_PS_Phy       x       -         PS            DATA_PHYSICAL
 reception_complete_SP_Phy          x       -         SP            DATA_PHYSICAL
 data_read_SP_Phy [31:0]            x       -         SP            DATA_PHYSICAL
 dataFromFIFO_FIFO_Phy [31:0]       x       -         FIFO          DATA_PHYSICAL
-SD_CLK                             x       -         SD_CARD       DATA_PHYSICAL
 serial_Ready_Phy_DATA              -       x         DATA_PHYSICAL DATA
 complete_Phy_DATA                  -       x         DATA_PHYSICAL DATA
 ack_OUT_Phy_DATA                   -       x         DATA_PHYSICAL DATA
@@ -61,8 +60,8 @@ pad_enable_Phy_PAD                 -       x         DATA_PHYSICAL PAD
 writeFIFO_enable_Phy_FIFO          -       x         DATA_PHYSICAL FIFO
 readFIFO_enable_Phy_FIFO           -       x         DATA_PHYSICAL FIFO
 dataReadToFIFO_Phy_FIFO [31:0]     -       x         DATA_PHYSICAL FIFO
-DAT_pin_IN_SDCard_Phy              x       -         SD_CARD       DATA_PHYSICAL <<< es un pin de entrada/salida
-DAT_pin_OUT_Phy_SDCard             -       x         DATA_PHYSICAL SD_CARD
+DAT_pin_IN_SDCard_Phy              x       -         SD_CARD       DATA_PHYSICAL <<< es un pin de entrada/salida que no se usa
+DAT_pin_OUT_Phy_SDCard             -       x         DATA_PHYSICAL SD_CARD           en la implementacion final
 DAT_pin_OUT_Enable_Phy_SDCard      -       x         DATA_PHYSICAL SD_CARD
 _____________________________________________________________________________________
 
@@ -70,7 +69,7 @@ ________________________________________________________________________________
 
 
 module DATA_PHYSICAL(
-    input wire CLK,
+    input wire SD_CLK,
     input wire RESET_L,
     input wire strobe_IN_DATA_Phy,
     input wire ack_IN_DATA_Phy,
@@ -83,7 +82,6 @@ module DATA_PHYSICAL(
     input wire reception_complete_SP_Phy,
     input wire [31:0] data_read_SP_Phy,
     input wire [31:0] dataFromFIFO_FIFO_Phy,
-    input wire SD_CLK,
     output reg serial_Ready_Phy_DATA,
     output reg complete_Phy_DATA,
     output reg ack_OUT_Phy_DATA,
@@ -98,10 +96,7 @@ module DATA_PHYSICAL(
     output reg pad_enable_Phy_PAD,
     output reg writeFIFO_enable_Phy_FIFO,
     output reg readFIFO_enable_Phy_FIFO,
-    output reg [31:0] dataReadToFIFO_Phy_FIFO,
-    input wire DAT_pin_IN_SDCard_Phy,
-    output reg DAT_pin_OUT_Phy_SDCard,
-    output reg DAT_pin_OUT_Enable_Phy_SDCard                      
+    output reg [31:0] dataReadToFIFO_Phy_FIFO                    
 );
 
 //Definición y condificación de estados one-hot
@@ -129,7 +124,7 @@ reg NEXT_STATE;
 //blocks es el contador para blocks_DATA_Phy;
 
 //NEXT_STATE logic (always_ff)
-always @ (posedge CLK)
+always @ (posedge SD_CLK)
 begin
     if (!RESET_L) 
         begin

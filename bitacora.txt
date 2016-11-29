@@ -11,7 +11,8 @@
                 vamos a usar git:
                     alonso es el encargardo de crear el repositorio
                     SIEMPRE SE EJECUTA LO SIGUIENTE:
-                        git pull
+			git origin master                        
+			git pull
                         git add
                         git commit
                         git push
@@ -55,7 +56,7 @@
 18 de Octubre de 2016
     reunión:
         presentes:
-            Christian
+            Cristian
             Luis
             Alonso
         Ausente:
@@ -95,3 +96,26 @@
 
 	link del esquema de registros:
 		https://docs.google.com/spreadsheets/d/1Ke_AAxDZ1lh2pk6SkSITdIdJbY1iyZVdYj9h7hYouh4/edit?usp=sharing
+
+4 de noviembre de 2016
+	Link para descarga del FIFO
+	http://opencores.org/project,generic_fifos
+		presentes:
+			Cristian
+			Mario
+
+8 de noviembre de 2016
+	Revisión de avances del grupo. 
+		presentes:
+			Cristian
+			Alonso
+			Luis
+			Mario
+	
+18 de noviembre de 2016
+	Presentaciones a la clase y el profesor sobre los bloques Registers (Cristian) y DATA (Alonso).
+		presentes:
+			Cristian
+			Alonso
+			Luis
+			Mario
