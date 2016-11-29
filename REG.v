@@ -43,6 +43,7 @@ module REG(clk, rw, addr, data_in, data_out);
    output [15: 0] 	    Argument1;
    wire [15: 0] 	    Argument1;
    
+   output [31:0] 	    Argument; 		    
    wire [31:0] 		    Argument;
    assign        	    Argument[15:0] = Argument0;
    assign 		    Argument[31:16] = Argument1;
@@ -177,13 +178,13 @@ module REG(clk, rw, addr, data_in, data_out);
    wire [15: 0] 	    Slot_Interrupt_Status;
 
    //24
-   output [15:0] 	    Timeout; 	    
-   wire [14:0] 		    timeout_Reg;
-   wire 		    timeout_enable;
+   output [15:0] 	    Timeout_Reg; 	    
+   wire [15:0] 		    Timeout_Reg;
+   
    output [15:0] 	    data;
    wire 		    writeRead;
    wire 		    multipleData;
-   
+   wire 		    timeout_enable;   
    
    
    reg [data_witdh-1: 0]    regs [0: reg_witdh-1];
@@ -193,8 +194,8 @@ module REG(clk, rw, addr, data_in, data_out);
    
    assign Block_Size[15:0] = regs[5'b00001][15:0];
    assign Block_Count[15:0] = regs[5'b00001][31:16];
-   wire [2:0] 		    blockCount; //DATA
-   assign blockCount = Block_Count[2:0];
+   wire [3:0] 		    blockCount; //DATA
+   assign blockCount = Block_Count[3:0];
    
    assign Argument0[15:0] = regs[ 5'b00010][15: 0];
    assign Argument1[15:0] = regs[ 5'b00010][31: 16];
@@ -271,12 +272,11 @@ module REG(clk, rw, addr, data_in, data_out);
    assign Timeout[15: 0] = regs[5'b11000][15: 0];
    assign data[15: 0] = regs[5'b11000][31: 16];
 
-   
-
-   assign timeout_Reg[14:0] = Timeout[14:0]; //DATA
-   assign timeout_enable = Timeout[15];
-   assign writeRead = data[0];
-   assign multipleData = data[1];
+  
+  // assign timeout_Reg[14:0] = Timeout[14:0]; //DATA
+   assign timeout_enable = data[0];
+   assign writeRead = data[1];
+   assign multipleData = data[2];
 
    
    
