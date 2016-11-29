@@ -60,8 +60,8 @@ pad_enable_Phy_PAD                 -       x         DATA_PHYSICAL PAD
 writeFIFO_enable_Phy_FIFO          -       x         DATA_PHYSICAL FIFO
 readFIFO_enable_Phy_FIFO           -       x         DATA_PHYSICAL FIFO
 dataReadToFIFO_Phy_FIFO [31:0]     -       x         DATA_PHYSICAL FIFO
-DAT_pin_IN_SDCard_Phy              x       -         SD_CARD       DATA_PHYSICAL <<< es un pin de entrada/salida
-DAT_pin_OUT_Phy_SDCard             -       x         DATA_PHYSICAL SD_CARD
+DAT_pin_IN_SDCard_Phy              x       -         SD_CARD       DATA_PHYSICAL <<< es un pin de entrada/salida que no se usa
+DAT_pin_OUT_Phy_SDCard             -       x         DATA_PHYSICAL SD_CARD           en la implementacion final
 DAT_pin_OUT_Enable_Phy_SDCard      -       x         DATA_PHYSICAL SD_CARD
 _____________________________________________________________________________________
 
@@ -96,10 +96,7 @@ module DATA_PHYSICAL(
     output reg pad_enable_Phy_PAD,
     output reg writeFIFO_enable_Phy_FIFO,
     output reg readFIFO_enable_Phy_FIFO,
-    output reg [31:0] dataReadToFIFO_Phy_FIFO,
-    input wire DAT_pin_IN_SDCard_Phy,
-    output reg DAT_pin_OUT_Phy_SDCard,
-    output reg DAT_pin_OUT_Enable_Phy_SDCard                      
+    output reg [31:0] dataReadToFIFO_Phy_FIFO,                    
 );
 
 //Definición y condificación de estados one-hot
