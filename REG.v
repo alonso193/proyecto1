@@ -24,6 +24,13 @@ module REG(clk, rw, addr, data_in, data_out);
    
    output [data_witdh-1: 0] data_out;
    reg 			    data_out;
+
+   /*input cmd_complete;
+    input cmd_index_error;
+    always @(cmd_complete) begin
+    
+    */
+   
    
    //0
    output [15: 0] 	    SDMA_System_Address_Low;
@@ -269,7 +276,7 @@ module REG(clk, rw, addr, data_in, data_out);
    assign Slot_Interrupt_Status[15: 0] = regs[5'b10011][15: 0];
    assign Host_Controller_Version[15: 0] = regs[5'b10011][31: 16];
 
-   assign Timeout[15: 0] = regs[5'b11000][15: 0];
+   assign Timeout_Reg[15: 0] = regs[5'b11000][15: 0];
    assign data[15: 0] = regs[5'b11000][31: 16];
 
   
