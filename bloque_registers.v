@@ -2,7 +2,7 @@ module bloque_registers(clk, rw, addr, data_in, data_out);
   
   parameter data_witdh = 32;
   parameter addr_witdh = 5;
-  parameter reg_witdh = 28;
+  parameter reg_witdh = 29;
    
    input clk;
    wire  clk;
@@ -52,6 +52,8 @@ module bloque_registers(clk, rw, addr, data_in, data_out);
    wire [15: 0] 	    Transfer_Mode;
    output [15: 0] 	    Command;
    wire [15: 0] 	    Command;
+   wire [5:0] 		    cmd_index; //CMD
+   assign cmd_index[5:0] = Command[13:8];
    
    //4-5-6-7
    output [15: 0] 	    Response0; //read only
@@ -173,6 +175,16 @@ module bloque_registers(clk, rw, addr, data_in, data_out);
    output [15: 0] 	    Slot_Interrupt_Status;
    wire [15: 0] 	    Host_Controller_Version;
    wire [15: 0] 	    Slot_Interrupt_Status;
+
+   //24
+   output [15:0] 	    Timeout; 	    
+   wire [14:0] 		    timeout_Reg;
+   wire 		    timeout_enable;
+   output [15:0] 	    data;
+   wire 		    writeRead;
+   wire 		    multipleData;
+   
+   
    
    reg [data_witdh-1: 0]    regs [0: reg_witdh-1];
    
@@ -181,6 +193,8 @@ module bloque_registers(clk, rw, addr, data_in, data_out);
    
    assign Block_Size[15:0] = regs[5'b00001][15:0];
    assign Block_Count[15:0] = regs[5'b00001][31:16];
+   wire [2:0] 		    blockCount; //DATA
+   assign blockCount = Block_Count[2:0];
    
    assign Argument0[15:0] = regs[ 5'b00010][15: 0];
    assign Argument1[15:0] = regs[ 5'b00010][31: 16];
@@ -243,7 +257,7 @@ module bloque_registers(clk, rw, addr, data_in, data_out);
    assign Force_Event_for_Error_Interrupt_Status[15:0] = regs[5'b10100][31: 16];
    
    assign ADMA_Error_Status[7:0] = regs[5'b10101][7:0];
-   // assign 0 = [31: 8] regs[addr];
+   
    
    assign ADMA_System_Address_15[15:0] = regs[5'b10110][15:0];
    assign ADMA_System_Address_31[15:0] = regs[5'b10110][31: 16];
@@ -251,8 +265,21 @@ module bloque_registers(clk, rw, addr, data_in, data_out);
    assign ADMA_System_Address_47[15:0] = regs[5'b10111][15:0];
    assign ADMA_System_Address_63[15:0] = regs[5'b10111][31: 16];
    
-   assign Slot_Interrupt_Status[15: 0] = regs[5'b11001][15: 0];
-   assign Host_Controller_Version[15: 0] = regs[5'b11001][31: 16];
+   assign Slot_Interrupt_Status[15: 0] = regs[5'b10011][15: 0];
+   assign Host_Controller_Version[15: 0] = regs[5'b10011][31: 16];
+
+   assign Timeout[15: 0] = regs[5'b11000][15: 0];
+   assign data[15: 0] = regs[5'b11000][31: 16];
+
+   
+
+   assign timeout_Reg[14:0] = Timeout[14:0]; //DATA
+   assign timeout_enable = Timeout[15];
+   assign writeRead = data[0];
+   assign multipleData = data[1];
+
+   
+   
    
    // Lectura y escritura desde CPU (se estan leyendo y escribiendo 32)
    always @(posedge clk) begin
