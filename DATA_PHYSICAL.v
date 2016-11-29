@@ -96,7 +96,7 @@ module DATA_PHYSICAL(
     output reg pad_enable_Phy_PAD,
     output reg writeFIFO_enable_Phy_FIFO,
     output reg readFIFO_enable_Phy_FIFO,
-    output reg [31:0] dataReadToFIFO_Phy_FIFO,                    
+    output reg [31:0] dataReadToFIFO_Phy_FIFO                    
 );
 
 //Definición y condificación de estados one-hot
