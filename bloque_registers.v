@@ -5,19 +5,25 @@ module bloque_registers(clk, rw, addr, data_in, data_out);
   parameter reg_witdh = 28;
    
    input clk;
-   wire clk;
+   wire  clk;
+   
    input rw;
-   wire rw;
+   wire  rw;
+   
    input req;
-   wire req;
+   wire  req;
+   
    output ack;
-   reg ack;
+   reg 	  ack;
+   
    input [addr_witdh-1: 0] addr;
-   wire addr;
+   wire 		   addr;
+   
    input [data_witdh-1: 0] data_in;
-   wire data_in;
+   wire 		   data_in;
+   
    output [data_witdh-1: 0] data_out;
-   reg data_out;
+   reg 			    data_out;
    
    //0
    output [15: 0] 	    SDMA_System_Address_Low;
@@ -27,9 +33,9 @@ module bloque_registers(clk, rw, addr, data_in, data_out);
    
    //1
    output [15: 0] 	    Block_Size;
-   wire [15: 0] 		Block_Size;
+   wire [15: 0] 	    Block_Size;
    output [15: 0] 	    Block_Count;
-   wire [15: 0] 		Block_Count;
+   wire [15: 0] 	    Block_Count;
    
    //2
    output [15: 0] 	    Argument0;
@@ -37,158 +43,138 @@ module bloque_registers(clk, rw, addr, data_in, data_out);
    output [15: 0] 	    Argument1;
    wire [15: 0] 	    Argument1;
    
-   wire [31:0] 			Argument;
-   assign        		Argument[15:0] = Argument0;
-   assign 		       	Argument[31:16] = Argument1;
+   wire [31:0] 		    Argument;
+   assign        	    Argument[15:0] = Argument0;
+   assign 		    Argument[31:16] = Argument1;
    
    //3
-   output [15: 0] 	 Transfer_Mode;
-   wire [15: 0] 	 Transfer_Mode;
-   output [15: 0] 	 Command;
-   wire [15: 0] 	 Command;
+   output [15: 0] 	    Transfer_Mode;
+   wire [15: 0] 	    Transfer_Mode;
+   output [15: 0] 	    Command;
+   wire [15: 0] 	    Command;
    
    //4-5-6-7
-   output [15: 0] 	 Response0; //read only
-   output [15: 0] 	 Response1;
-   output [15: 0] 	 Response2; 
-   output [15: 0] 	 Response3;
-   output [15: 0] 	 Response4;
-   output [15: 0] 	 Response5;
-   output [15: 0] 	 Response6;
-   output [15: 0] 	 Response7;
-   wire [15: 0] 	 Response0; 
-   wire [15: 0] 	 Response1;
-   wire [15: 0] 	 Response2; 
-   wire [15: 0] 	 Response3;
-   wire [15: 0] 	 Response4;
-   wire [15: 0] 	 Response5;
-   wire [15: 0] 	 Response6;
-   wire [15: 0] 	 Response7;
+   output [15: 0] 	    Response0; //read only
+   output [15: 0] 	    Response1;
+   output [15: 0] 	    Response2; 
+   output [15: 0] 	    Response3;
+   output [15: 0] 	    Response4;
+   output [15: 0] 	    Response5;
+   output [15: 0] 	    Response6;
+   output [15: 0] 	    Response7;
+   wire [15: 0] 	    Response0; 
+   wire [15: 0] 	    Response1;
+   wire [15: 0] 	    Response2; 
+   wire [15: 0] 	    Response3;
+   wire [15: 0] 	    Response4;
+   wire [15: 0] 	    Response5;
+   wire [15: 0] 	    Response6;
+   wire [15: 0] 	    Response7;
    
    //8
-   output [15: 0] 	 Buffer_Data_Port0;
-   wire [15: 0] 	 Buffer_Data_Port0;
-   output [15: 0] 	 Buffer_Data_Port1;
-   wire [15: 0] 	 Buffer_Data_Port1;
+   output [15: 0] 	    Buffer_Data_Port0;
+   wire [15: 0] 	    Buffer_Data_Port0;
+   output [15: 0] 	    Buffer_Data_Port1;
+   wire [15: 0] 	    Buffer_Data_Port1;
    
    //9
-   output [15: 0] 	 Present_State1; // read only
-   wire [15: 0] 	 Present_State1;
-   output [15: 0] 	 Present_State2; 
-   wire [15: 0] 	 Present_State2;
+   output [15: 0] 	    Present_State1; // read only
+   wire [15: 0] 	    Present_State1;
+   output [15: 0] 	    Present_State2; 
+   wire [15: 0] 	    Present_State2;
    
    //10
-   output [7: 0] 	 Host_Control;
-   output [7: 0] 	 Power_Control;
-   wire [7: 0] 	 Host_Control;
-   wire [7: 0] 	 Power_Control;
-   output [7: 0] 	 Block_Gap_Control;
-   output [7: 0]     Wakeup_Control;
-   wire [7: 0] 	     Block_Gap_Control;
-   wire [7: 0] 		 Wakeup_Control;
+   output [7: 0] 	    Host_Control;
+   output [7: 0] 	    Power_Control;
+   wire [7: 0] 		    Host_Control;
+   wire [7: 0] 		    Power_Control;
+   output [7: 0] 	    Block_Gap_Control;
+   output [7: 0] 	    Wakeup_Control;
+   wire [7: 0] 		    Block_Gap_Control;
+   wire [7: 0] 		    Wakeup_Control;
    
    //11
-   output [15: 0] 	 Clock_Control;
-   wire [15: 0] 	 Clock_Control;
-   output [7: 0] 	 Timeout_Control;
-   output [7: 0]     Software_Reset;
-   wire [7: 0] 	     Timeout_Control;
-   wire [7: 0] 		 Software_Reset;
+   output [15: 0] 	    Clock_Control;
+   wire [15: 0] 	    Clock_Control;
+   output [7: 0] 	    Timeout_Control;
+   output [7: 0] 	    Software_Reset;
+   wire [7: 0] 		    Timeout_Control;
+   wire [7: 0] 		    Software_Reset;
    
    //12
-   output [15: 0] 	 Normal_Interrupt_Status;
-   wire [15: 0] 	 Normal_Interrupt_Status;
-   output [15: 0] 	 Error_Interrupt_Status;
-   wire [15: 0] 	 Error_Interrupt_Status;
+   output [15: 0] 	    Normal_Interrupt_Status;
+   wire [15: 0] 	    Normal_Interrupt_Status;
+   output [15: 0] 	    Error_Interrupt_Status;
+   wire [15: 0] 	    Error_Interrupt_Status;
    
    //13
-   output [15: 0] 	 Normal_Interrupt_Status_Enable;
-   wire [15: 0] 	 Normal_Interrupt_Status_Enable;
-   output [15: 0] 	 Error_Interrupt_Status_Enable;
-   wire [15: 0] 	 Error_Interrupt_Status_Enable;
+   output [15: 0] 	    Normal_Interrupt_Status_Enable;
+   wire [15: 0] 	    Normal_Interrupt_Status_Enable;
+   output [15: 0] 	    Error_Interrupt_Status_Enable;
+   wire [15: 0] 	    Error_Interrupt_Status_Enable;
    
    //14
-   output [15: 0] 	 Normal_Interrupt_Signal_Enable;
-   wire [15: 0] 	 Normal_Interrupt_Signal_Enable;
-   output [15: 0] 	 Error_Interrupt_Signal_Enable;
-   wire [15: 0] 	 Error_Interrupt_Signal_Enable;
+   output [15: 0] 	    Normal_Interrupt_Signal_Enable;
+   wire [15: 0] 	    Normal_Interrupt_Signal_Enable;
+   output [15: 0] 	    Error_Interrupt_Signal_Enable;
+   wire [15: 0] 	    Error_Interrupt_Signal_Enable;
    
    //15
-   output [15: 0] 	 Auto_CMD12_Error_Status;
-   wire [15: 0] 	 Auto_CMD12_Error_Status;
+   output [15: 0] 	    Auto_CMD12_Error_Status;
+   wire [15: 0] 	    Auto_CMD12_Error_Status;
    //--
    
    //16
-   output [15: 0] 	 Capabilities1; //*
-   wire [15: 0] 	 Capabilities1; //*
-   output [15: 0] 	 Capabilities2; //*
-   wire [15: 0] 	 Capabilities2; //*
+   output [15: 0] 	    Capabilities1; //*
+   wire [15: 0] 	    Capabilities1; //*
+   output [15: 0] 	    Capabilities2; //*
+   wire [15: 0] 	    Capabilities2; //*
    
    //17
-   output [15: 0] 	 Capabilities_Reserved_1; //*
-   wire [15: 0] 	 Capabilities_Reserved_1; //*
-   output [15: 0] 	 Capabilities_Reserved_2; //*
-   wire [15: 0] 	 Capabilities_Reserved_2; //*
+   output [15: 0] 	    Capabilities_Reserved_1; //*
+   wire [15: 0] 	    Capabilities_Reserved_1; //*
+   output [15: 0] 	    Capabilities_Reserved_2; //*
+   wire [15: 0] 	    Capabilities_Reserved_2; //*
    
    //18
-   output [15: 0] 	 Maximum_Current_Capabilities1; //*
-   wire [15: 0] 	 Maximum_Current_Capabilities1; //*
-   output [15: 0] 	 Maximum_Current_Capabilities2; //*
-   wire [15: 0] 	 Maximum_Current_Capabilities2; //*
+   output [15: 0] 	    Maximum_Current_Capabilities1; //*
+   wire [15: 0] 	    Maximum_Current_Capabilities1; //*
+   output [15: 0] 	    Maximum_Current_Capabilities2; //*
+   wire [15: 0] 	    Maximum_Current_Capabilities2; //*
    
    //19
-   output [15: 0] 	 Maximum_Current_Capabilities_Reserved_1; //*
-   output [15: 0] 	 Maximum_Current_Capabilities_Reserved_2; //*
-   wire [15: 0] 	 Maximum_Current_Capabilities_Reserved_1; //*
-   wire [15: 0] 	 Maximum_Current_Capabilities_Reserved_2; //*
+   output [15: 0] 	    Maximum_Current_Capabilities_Reserved_1; //*
+   output [15: 0] 	    Maximum_Current_Capabilities_Reserved_2; //*
+   wire [15: 0] 	    Maximum_Current_Capabilities_Reserved_1; //*
+   wire [15: 0] 	    Maximum_Current_Capabilities_Reserved_2; //*
    
    //20
-   output [15: 0] 	 Force_Event_for_Auto_CMD12_Error_Status;
-   output [15: 0] 	 Force_Event_for_Error_Interrupt_Status;
-   wire [15: 0] 	 Force_Event_for_Auto_CMD12_Error_Status;
-   wire [15: 0] 	 Force_Event_for_Error_Interrupt_Status;
+   output [15: 0] 	    Force_Event_for_Auto_CMD12_Error_Status;
+   output [15: 0] 	    Force_Event_for_Error_Interrupt_Status;
+   wire [15: 0] 	    Force_Event_for_Auto_CMD12_Error_Status;
+   wire [15: 0] 	    Force_Event_for_Error_Interrupt_Status;
    
    //21
-   output [7: 0] 	 ADMA_Error_Status;//*
-   wire [7: 0] 		 ADMA_Error_Status;//*
+   output [7: 0] 	    ADMA_Error_Status;//*
+   wire [7: 0] 		    ADMA_Error_Status;//*
    
    //22-23
-   output [15: 0] 	 ADMA_System_Address_15;
-   output [15: 0] 	 ADMA_System_Address_31;
-   output [15: 0] 	 ADMA_System_Address_47;
-   output [15: 0] 	 ADMA_System_Address_63;
-   wire [15: 0] 	 ADMA_System_Address_15;
-   wire [15: 0] 	 ADMA_System_Address_31;
-   wire [15: 0] 	 ADMA_System_Address_47;
-   wire [15: 0] 	 ADMA_System_Address_63;
+   output [15: 0] 	    ADMA_System_Address_15;
+   output [15: 0] 	    ADMA_System_Address_31;
+   output [15: 0] 	    ADMA_System_Address_47;
+   output [15: 0] 	    ADMA_System_Address_63;
+   wire [15: 0] 	    ADMA_System_Address_15;
+   wire [15: 0] 	    ADMA_System_Address_31;
+   wire [15: 0] 	    ADMA_System_Address_47;
+   wire [15: 0] 	    ADMA_System_Address_63;
    
    //27
-   output [15: 0] 	 Host_Controller_Version;
-   output [15: 0] 	 Slot_Interrupt_Status;
-   wire [15: 0] 	 Host_Controller_Version;
-   wire [15: 0] 	 Slot_Interrupt_Status;
+   output [15: 0] 	    Host_Controller_Version;
+   output [15: 0] 	    Slot_Interrupt_Status;
+   wire [15: 0] 	    Host_Controller_Version;
+   wire [15: 0] 	    Slot_Interrupt_Status;
    
-   reg [data_witdh-1: 0] regs [0: reg_witdh-1];
-   
-   // Lectura y escritura desde CPU (se estan leyendo y escribiendo 32)
-   always @(posedge clk) begin
-      if(req == 1) begin      
-	 if (rw == 1) begin //lectura
-	    data_out <= regs[addr];
-	    ack <= 1;
-	 end
-	 else begin
-	    regs[addr] <= data_in;
-	    ack <= 1;
-	 end
-      end
-      else begin
-	 data_out <= data_out;
-	 ack <= 0;
-      end
-   end   
-   
-   //if(r/w == 0) begin 
+   reg [data_witdh-1: 0]    regs [0: reg_witdh-1];
    
    assign SDMA_System_Address_Low[15:0] = regs[5'b00000][15:0];
    assign SDMA_System_Address_High[15:0] = regs[5'b00000][31:16];
@@ -265,15 +251,26 @@ module bloque_registers(clk, rw, addr, data_in, data_out);
    assign ADMA_System_Address_47[15:0] = regs[5'b10111][15:0];
    assign ADMA_System_Address_63[15:0] = regs[5'b10111][31: 16];
    
-   
-   // ...
-   
-   
    assign Slot_Interrupt_Status[15: 0] = regs[5'b11001][15: 0];
    assign Host_Controller_Version[15: 0] = regs[5'b11001][31: 16];
    
+   // Lectura y escritura desde CPU (se estan leyendo y escribiendo 32)
+   always @(posedge clk) begin
+      if(req == 1) begin      
+	 if (rw == 1) begin //lectura
+	    data_out <= regs[addr];
+	    ack <= 1;
+	 end
+	 else begin
+	    regs[addr] <= data_in;
+	    ack <= 1;
+	 end
+      end
+      else begin
+	 data_out <= data_out;
+	 ack <= 0;
+      end
+   end 
    
-   // else ...
-
 endmodule 
 
