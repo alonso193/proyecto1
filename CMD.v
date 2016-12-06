@@ -1,8 +1,8 @@
 
 
-module CMD (clk_host, reset_host, new_command, cmd_argument, cmd_index,/* timeout_enable,*/ cmd_complete, cmd_index_error, CMD_PIN_OUT, CMD_PIN_IN, clk_SD);
+module CMD (clk_host, reset_host, new_command, cmd_argument, cmd_index, cmd_complete, cmd_index_error, CMD_PIN_OUT, CMD_PIN_IN, clk_SD);
     //entradas del CMD
-    input wire clk_host, reset_host, new_command,/* timeout_enable,*/ CMD_PIN_IN, clk_SD;
+    input wire clk_host, reset_host, new_command, CMD_PIN_IN, clk_SD;
     input wire [31:0]cmd_argument;
     input wire [5:0]cmd_index;
     //salidas del CMD
@@ -15,14 +15,14 @@ module CMD (clk_host, reset_host, new_command, cmd_argument, cmd_index,/* timeou
 
 
 
-    cmd_control cmd_control1( );
+    cmd_control cmd_control1();
     control_capa_fisica control_capa_fisica1();
     parallel_to_serial parallel_to_serial1();
     serial_to_parallel serial_to_parallel1();
 endmodule // CMD
 
 
-module cmd_control (clk_host,reset_host, new_command, cmd_argument, cmd_index /*,timeout_enable, serial_ready*/, ack_in, strobe_in, cmd_in, timeout, response, cmd_complete, cmd_index_error, strobe_out, ack_out, idle_out, cmd_out);
+module cmd_control (clk_host,reset_host, new_command, cmd_argument, cmd_index, ack_in, strobe_in, cmd_in, response, cmd_complete, cmd_index_error, strobe_out, ack_out, idle_out, cmd_out);
     //declaración de entradas y salidas
 
     //provenientes del host
@@ -31,14 +31,11 @@ module cmd_control (clk_host,reset_host, new_command, cmd_argument, cmd_index /*
     input wire new_command;
     input wire [31:0]cmd_argument;
     input wire [5:0]cmd_index;
-    //input wire timeout_enable;
 
     //provenientes de la capa física
-    //input wire serial_ready;
     input wire ack_in;
     input wire strobe_in;
     input wire [135:0]cmd_in;
-    input wire timeout;
     output reg [127:0]response;
     output reg cmd_complete;
     output reg cmd_index_error;
@@ -51,8 +48,6 @@ module cmd_control (clk_host,reset_host, new_command, cmd_argument, cmd_index /*
     parameter IDLE = 1;
     parameter SETTING_OUTPUTS = 2;
     parameter PROCESSING = 3;
-    parameter VALOR_DE_ERROR_DEL_INDEX = 12;
-
     reg [1:0]estado = 0;
 
     always @ ( * ) begin
@@ -98,7 +93,7 @@ module cmd_control (clk_host,reset_host, new_command, cmd_argument, cmd_index /*
                     if (strobe_in == 1) begin
                         cmd_complete = 1;
                         ack_out = 1;
-                        if (cmd_index == VALOR_DE_ERROR_DEL_INDEX) begin
+                        if ((cmd_out[0] != 1) || (cmd_in[134] != 0)) begin
                             cmd_index_error = 1;
                         end else begin
                             cmd_index_error = 0;
@@ -121,72 +116,8 @@ module cmd_control (clk_host,reset_host, new_command, cmd_argument, cmd_index /*
     end
 endmodule // cmd_control
 
-module senales_cmd_control (clk_host,reset_host, new_command, cmd_argument, cmd_index, timeout_enable, serial_ready, ack_in, strobe_in, cmd_in, timeout, response, cmd_complete, cmd_index_error, strobe_out, ack_out, idle_out, cmd_out);
-    output reg clk_host;
-    output reg reset_host;
-    output reg new_command;
-    output reg [31:0]cmd_argument;
-    output reg [5:0]cmd_index;
-    output reg timeout_enable;
-    output reg serial_ready;
-    output reg ack_in;
-    output reg strobe_in;
-    output reg [135:0]cmd_in;
-    output reg timeout;
-    input [127:0]response;
-    input cmd_complete;
-    input cmd_index_error;
-    input strobe_out;
-    input ack_out;
-    input idle_out;
-    input [39:0]cmd_out;
-
-    always begin
-        #1 clk_host = ~clk_host;
-    end
-
-    initial begin
-        $dumpfile("prueba_cmd_control.vcd");
-        $dumpvars;
-        clk_host = 0;
-        reset_host = 0;
-        new_command = 0;
-        cmd_argument = 4294967295;
-        cmd_index = 63;
-        strobe_in = 0;
-        cmd_in = 0;
-        #5 reset_host = 0;
-        #15 new_command = 1; ack_in = 1;
-        #1 ack_in = 0;
-        #10 cmd_argument = 1; cmd_index = 3;
-        #40 strobe_in = 1; ack_in = 1;
-        #5 reset_host = 0;
-        #15 new_command = 1; ack_in = 1;
-        #1 ack_in = 0;
-        #10 cmd_argument = 1; cmd_index = 12;
-        #40 strobe_in = 1; ack_in = 1;
-        #40 $finish;
-    end
-
-endmodule // señales_cmd_control
-
-module testbench_cmd_control ();
-    wire clk_host, reset_host, new_command, ack_in, strobe_in, CMD_COMPLETE, strobe_out, idle_out;
-    wire [31:0]cmd_argument;
-    wire [5:0]cmd_index;
-    wire [135:0]cmd_in;
-    wire [127:0]response;
-    wire [39:0]cmd_out;
-
-    cmd_control c1(clk_host,reset_host, new_command, cmd_argument, cmd_index,ack_in, strobe_in, cmd_in, timeout, response, cmd_complete, cmd_index_error, strobe_out, ack_out, idle_out, cmd_out);
-    senales_cmd_control s1(clk_host,reset_host, new_command, cmd_argument, cmd_index, timeout_enable, serial_ready, ack_in, strobe_in, cmd_in, timeout, response, cmd_complete, cmd_index_error, strobe_out, ack_out, idle_out, cmd_out);
-endmodule // testbench_cmd_control
-
-
-
-
-module control_capa_fisica (strobe_in, ack_in, idle_in, no_response, pad_response, reception_complete, transmission_complete, ack_out, strobe_out, response, cmd_timeout, load_send, enable_stp, enable_pts, reset_stp, reset_pts, reset_host, clk_SD);
-    input wire strobe_in, ack_in, idle_in, no_response, reset_host, clk_SD;
+module control_capa_fisica (strobe_in, ack_in, idle_in, pad_response, reception_complete, transmission_complete, ack_out, strobe_out, response, cmd_timeout, load_send, enable_stp, enable_pts, reset_stp, reset_pts, reset_host, clk_SD);
+    input wire strobe_in, ack_in, idle_in, reset_host, clk_SD;
     input wire [135:0]pad_response;
     input wire reception_complete, transmission_complete;
     output reg ack_out, strobe_out;
@@ -258,7 +189,7 @@ module control_capa_fisica (strobe_in, ack_in, idle_in, no_response, pad_respons
                         end else begin
                             enable_stp = 1;
                             load_send = 0;
-                            if ((reception_complete == 1) || (no_response == 1)) begin
+                            if (reception_complete == 1) begin
                                 estado = SEND_RESPONSE;
                             end else begin
                                 estado = WAIT_RESPONSE;
