@@ -131,4 +131,7 @@
 	Combinanción de los bloques de SD Host.
 		presentes:
 			Cristian
+                        Mario
+			Alonso
+
 
