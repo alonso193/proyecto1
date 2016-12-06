@@ -2,7 +2,7 @@ module REG(clk, rw, addr, data_in, data_out);
 
   parameter data_witdh = 32;
   parameter addr_witdh = 5;
-  parameter reg_witdh = 29;
+  parameter reg_witdh = 28;
 
    input clk;
    wire  clk;
@@ -26,11 +26,6 @@ module REG(clk, rw, addr, data_in, data_out);
    reg 			    data_out;
 
 
-   /*input cmd_complete;
-    input cmd_index_error;
-    always @(cmd_complete) begin
-    
-    */
 
    //0
    output [15: 0] 	    SDMA_System_Address_Low;
@@ -192,6 +187,18 @@ module REG(clk, rw, addr, data_in, data_out);
    wire 		    writeRead;
    wire 		    multipleData;
    wire 		    timeout_enable;
+   
+   //25
+    input cmd_complete;
+	wire cmd_complete;
+    input cmd_index_error;
+	wire cmd_index_error;
+    always @(cmd_complete)
+	regs[5'b11001][0] <= cmd_complete;
+	
+	always @(cmd_index_error)
+	regs[5'b11001][1] <= cmd_index_error;
+	
 
 
    reg [data_witdh-1: 0]    regs [0: reg_witdh-1];
@@ -285,7 +292,8 @@ module REG(clk, rw, addr, data_in, data_out);
    assign writeRead = data[1];
    assign multipleData = data[2];
 
-
+   assign cmd_complete = regs[5'b11001][0];
+   assign cmd_complete = regs[5'b11001][0];
 
 
    // Lectura y escritura desde CPU (se estan leyendo y escribiendo 32)
