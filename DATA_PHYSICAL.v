@@ -1,16 +1,16 @@
 //-----------------------------------------------------
 // Proyecto 1  : DISEÑO DE UN CONTROLADOR DE SD HOST
 // Archivo     : DATA_PHYSICAL.v
-// Descripcion : Control de capa física de datos del SD Host. 
+// Descripcion : Control de capa física de datos del SD Host.
 //  La función de este bloque es servir de interfaz entre la tajeta SD, la capa física y el buffer FIFO.
 //  Se comunica con el bloque de Registros y los convertidores Serial a Paralelo, Paralelo a Serial y el bloque
 //  PAD.
-//  
+//
 // Grupo 02
 // Estudiante  : Mario Castresana Avendaño | A41267
 //-----------------------------------------------------
 
-/* 
+/*
 =================================================
 CAPA FÍSICA DEL MODULO DE CONTROL DE DATOS
 =================================================
@@ -26,7 +26,7 @@ Para nombrar señales se usa la convención señal_procedencia_destino
 
 ---
 notas:
- 1- entiéndase PS como el módulo Parallel to Serial y SP como el módulo Serial to Parallel.  
+ 1- entiéndase PS como el módulo Parallel to Serial y SP como el módulo Serial to Parallel.
  2- SD_CLK opera a 25MHz
 
 _____________________________________________________________________________________
@@ -50,10 +50,8 @@ complete_Phy_DATA                  -       x         DATA_PHYSICAL DATA
 ack_OUT_Phy_DATA                   -       x         DATA_PHYSICAL DATA
 data_timeout_Phy_DATA              -       x         DATA_PHYSICAL DATA y Regs
 reset_Wrapper_Phy_PS               -       x         DATA_PHYSICAL PS y SP
-load_send_Phy_PS                   -       x         DATA_PHYSICAL PS
 enable_pts_Wrapper_Phy_PS          -       x         DATA_PHYSICAL PS
 enable_stp_Wrapper_Phy_SP          -       x         DATA_PHYSICAL SP
-waiting_response_Phy_SP            -       x         DATA_PHYSICAL SP
 dataParallel_Phy_PS [31:0]         -       x         DATA_PHYSICAL PS
 pad_state_Phy_PAD                  -       x         DATA_PHYSICAL PAD
 pad_enable_Phy_PAD                 -       x         DATA_PHYSICAL PAD
@@ -87,21 +85,20 @@ module DATA_PHYSICAL(
     output reg ack_OUT_Phy_DATA,
     output reg data_timeout_Phy_DATA,
     output reg reset_Wrapper_Phy_PS,
-    output reg load_send_Phy_PS,
     output reg enable_pts_Wrapper_Phy_PS,
     output reg enable_stp_Wrapper_Phy_SP,
-    output reg waiting_response_Phy_SP,
     output reg [31:0] dataParallel_Phy_PS,
     output reg pad_state_Phy_PAD,
     output reg pad_enable_Phy_PAD,
     output reg writeFIFO_enable_Phy_FIFO,
     output reg readFIFO_enable_Phy_FIFO,
-    output reg [31:0] dataReadToFIFO_Phy_FIFO                    
+    output reg [31:0] dataReadToFIFO_Phy_FIFO,
+    output reg IO_enable_Phy_SD_CARD
 );
 
 //Definición y condificación de estados one-hot
 parameter RESET                  = 11'b00000000001;
-parameter IDLE                   = 11'b00000000010; 
+parameter IDLE                   = 11'b00000000010;
 parameter FIFO_READ              = 11'b00000000100;
 parameter LOAD_WRITE             = 11'b00000001000;
 parameter SEND                   = 11'b00000010000;
@@ -126,7 +123,7 @@ reg NEXT_STATE;
 //NEXT_STATE logic (always_ff)
 always @ (posedge SD_CLK)
 begin
-    if (!RESET_L) 
+    if (!RESET_L)
         begin
         STATE <= RESET;
         end
@@ -149,16 +146,15 @@ begin
             ack_OUT_Phy_DATA            = 0;
             data_timeout_Phy_DATA       = 0;
             reset_Wrapper_Phy_PS        = 1;  //solo esta en 1 porque el wrapper se resetea en 0
-            load_send_Phy_PS            = 0;
             enable_pts_Wrapper_Phy_PS   = 0;
             enable_stp_Wrapper_Phy_SP   = 0;
-            waiting_response_Phy_SP     = 0;
             dataParallel_Phy_PS         = 32'b0;
             pad_state_Phy_PAD           = 0;
             pad_enable_Phy_PAD          = 0;
             writeFIFO_enable_Phy_FIFO   = 0;
             readFIFO_enable_Phy_FIFO    = 0;
             dataReadToFIFO_Phy_FIFO     = 32'b0;
+            IO_enable_Phy_SD_CARD        = 0   //por default el host recibe datos desde la tarjeta SD
 
             //avanza automaticamente a IDLE
             NEXT_STATE = IDLE;
@@ -172,10 +168,10 @@ begin
             //reiniciar blocks_DATA_Phy y timeout_Reg_DATA_Phy
             blocks = 4'b0;
             timeout_input = 16'b0;
-            
+
             if (strobe_IN_DATA_Phy && writeRead_DATA_Phy)
                 begin
-                    NEXT_STATE = FIFO_READ;   
+                    NEXT_STATE = FIFO_READ;
                 end
             else
                 begin
@@ -198,20 +194,20 @@ begin
             //se carga al convertidor PS los datos que venían del FIFO mediante la
             //combinación de señales:
             enable_pts_Wrapper_Phy_PS = 1;
-            load_send_Phy_PS = 0;
+            IO_enable_Phy_SD_CARD = 0;
             pad_state_Phy_PAD = 1;
             pad_enable_Phy_PAD = 1;
 
             //se avanza al estado SEND
-            NEXT_STATE = SEND;            
+            NEXT_STATE = SEND;
             end
         //---------------------------------
         SEND:
             begin
-            //comienza la transmisión de datos 
-            load_send_Phy_PS = 1;
+            //avisar al hardware que se entregarán datos
+            IO_enable_Phy_SD_CARD = 1;
             //se avanza al estado WAIT_RESPONSE
-            NEXT_STATE = WAIT_RESPONSE;   
+            NEXT_STATE = WAIT_RESPONSE;
             end
         //---------------------------------
         WAIT_RESPONSE:
@@ -250,8 +246,8 @@ begin
                 end
             else
                 begin
-                    NEXT_STATE = WAIT_RESPONSE; 
-                end            
+                    NEXT_STATE = WAIT_RESPONSE;
+                end
             end
         //-----------------------------------
         READ:
@@ -262,7 +258,7 @@ begin
             pad_state_Phy_PAD = 0;
             //habilitar convertidad SP
             enable_stp_Wrapper_Phy_SP = 1;
-            //se realiza una cuenta de timeout 
+            //se realiza una cuenta de timeout
             timeout_input = timeout_input + 1;
             //genera interrupcion si se pasa
             if (timeout_input == timeout_Reg_DATA_Phy)
@@ -279,7 +275,7 @@ begin
                 begin
                     //se incrementa en 1 los bloques transmitidos
                     blocks = blocks + 1;
-                    NEXT_STATE = READ_FIFO_WRITE;                    
+                    NEXT_STATE = READ_FIFO_WRITE;
                 end
             else
                 begin
