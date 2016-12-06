@@ -187,6 +187,7 @@ module REG(clk, rw, addr, data_in, data_out);
    wire 		    writeRead;
    wire 		    multipleData;
    wire 		    timeout_enable;
+   wire [3:0] 		    block_count;
    
    //25
     input cmd_complete;
@@ -291,6 +292,7 @@ module REG(clk, rw, addr, data_in, data_out);
    assign timeout_enable = data[0];
    assign writeRead = data[1];
    assign multipleData = data[2];
+   assign block_count = data[6:3];
 
    assign cmd_complete = regs[5'b11001][0];
    assign cmd_complete = regs[5'b11001][0];
