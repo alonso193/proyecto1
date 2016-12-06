@@ -13,8 +13,6 @@ module CMD (clk_host, reset_host, new_command, cmd_argument, cmd_index, cmd_comp
     //wire timeout;
     //wire [127:0]response;
 
-
-
     cmd_control cmd_control1();
     control_capa_fisica control_capa_fisica1();
     parallel_to_serial parallel_to_serial1();
