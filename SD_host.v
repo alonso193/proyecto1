@@ -26,14 +26,15 @@ module SD_host (clk_host, reset_host, io_enable_cmd, CMD_PIN_IN, CMD_PIN_OUT, cl
     //cables de conexion entre REG y CMD
     wire [31:0]cmd_argument;
     wire [5:0]cmd_index;
+    wire [127:0]response;
     wire cmd_complete, cmd_index_error;
     assign cmd_argument = bloque_registers.Argument;
     assign cmd_index = bloque_registers.cmd_index;
-    //assign bloque_registers.cmd_complete = cmd_complete;
-    //assign bloque_registers.cmd_index_error = cmd_index_error;
+    assign bloque_registers.cmd_complete = cmd_complete;
+    assign bloque_registers.cmd_index_error = cmd_index_error;
 
 
-    CMD bloque_CMD(clk_host, reset_host, new_command, cmd_argument, cmd_index, cmd_complete, cmd_index_error, CMD_PIN_OUT, CMD_PIN_IN, clk_SD);
+    CMD bloque_CMD(lk_host, reset_host, new_command, cmd_argument, cmd_index, cmd_complete, cmd_index_error, response, CMD_PIN_OUT, IO_enable_pin, CMD_PIN_IN, clk_SD);
     REG bloque_registers(clk_host, rw_register, addres_register, data_in_register, data_out_register);
 
 endmodule // SD_host
