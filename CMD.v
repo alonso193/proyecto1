@@ -1,22 +1,30 @@
 
 
-module CMD (clk_host, reset_host, new_command, cmd_argument, cmd_index, cmd_complete, cmd_index_error, CMD_PIN_OUT, CMD_PIN_IN, clk_SD);
+module CMD (clk_host, reset_host, new_command, cmd_argument, cmd_index, cmd_complete, cmd_index_error, response, CMD_PIN_OUT, IO_enable_pin, CMD_PIN_IN, clk_SD);
     //entradas del CMD
     input wire clk_host, reset_host, new_command, CMD_PIN_IN, clk_SD;
     input wire [31:0]cmd_argument;
     input wire [5:0]cmd_index;
     //salidas del CMD
-    output reg cmd_complete, cmd_index_error, CMD_PIN_OUT;
+    output cmd_complete, cmd_index_error, CMD_PIN_OUT, IO_enable_pin;
+    output [127:0]response;
     //wires necesarios para conectar los sub-módulos
-    //wire serial_ready, ack_in, strobe_in;
-    //wire [135:0]cmd_in;
-    //wire timeout;
-    //wire [127:0]response;
+    wire ack_physic_to_control;
+    wire ack_control_to_physical;
+    wire strobe_physic_to_control;
+    wire strobe_control_to_physical;
+    wire idle_control_to_physical;
+    wire [39:0]cmd_out_control_to_pts;
+    wire [135:0]response_to_cmd_in;
+    wire [135:0]pad_response;
+    wire end_serializer;
+    wire end_parallel;
+    wire physic_enable_stp, physic_enable_pts, physic_reset_stp, physic_reset_pts;
 
-    cmd_control cmd_control1();
-    control_capa_fisica control_capa_fisica1();
-    parallel_to_serial parallel_to_serial1();
-    serial_to_parallel serial_to_parallel1();
+    cmd_control cmd_control1(clk_host, reset_host, new_command, cmd_argument, cmd_index, ack_physic_to_control, strobe_physic_to_control, response_to_cmd_in, response, cmd_complete, cmd_index_error, strobe_control_to_physical, ack_control_to_physical, idle_control_to_physical, cmd_out_control_to_pts);
+    control_capa_fisica control_capa_fisica1(strobe_control_to_physical, ack_control_to_physical, idle_control_to_physical, pad_response, end_serializer, end_parallel, ack_physic_to_control, strobe_physic_to_control, response_to_cmd_in, IO_enable_pin, physic_enable_stp, physic_enable_pts, physic_reset_stp, physic_reset_pts, reset_host, clk_SD);
+    parallel_to_serial parallel_to_serial1(physic_enable_pts, physic_reset_pts, clk_SD, cmd_out_control_to_pts, CMD_PIN_OUT, end_parallel);
+    serial_to_parallel serial_to_parallel1(cmd_out_control_to_pts, CMD_PIN_IN, physic_enable_stp, physic_reset_stp, clk_SD, pad_response, end_serializer);
 endmodule // CMD
 
 
@@ -114,13 +122,13 @@ module cmd_control (clk_host,reset_host, new_command, cmd_argument, cmd_index, a
     end
 endmodule // cmd_control
 
-module control_capa_fisica (strobe_in, ack_in, idle_in, pad_response, reception_complete, transmission_complete, ack_out, strobe_out, response, cmd_timeout, load_send, enable_stp, enable_pts, reset_stp, reset_pts, reset_host, clk_SD);
+module control_capa_fisica (strobe_in, ack_in, idle_in, pad_response, reception_complete, transmission_complete, ack_out, strobe_out, response, load_send, enable_stp, enable_pts, reset_stp, reset_pts, reset_host, clk_SD);
     input wire strobe_in, ack_in, idle_in, reset_host, clk_SD;
     input wire [135:0]pad_response;
     input wire reception_complete, transmission_complete;
     output reg ack_out, strobe_out;
     output reg [135:0]response;
-    output reg cmd_timeout, load_send, enable_stp, enable_pts, reset_stp, reset_pts;
+    output reg load_send, enable_stp, enable_pts, reset_stp, reset_pts;
     parameter RESET = 0;
     parameter IDLE = 1;
     parameter SEND_COMMAND = 2;
@@ -137,7 +145,6 @@ module control_capa_fisica (strobe_in, ack_in, idle_in, pad_response, reception_
                 ack_out = 0;
                 strobe_out = 0;
                 response = 0;
-                cmd_timeout = 0;
                 load_send = 0;
                 enable_stp = 0;
                 enable_pts = 0;
@@ -222,7 +229,6 @@ module control_capa_fisica (strobe_in, ack_in, idle_in, pad_response, reception_
                             ack_out = 0;
                             strobe_out = 0;
                             response = 0;
-                            cmd_timeout = 0;
                             load_send = 0;
                             enable_stp = 0;
                             enable_pts = 0;
