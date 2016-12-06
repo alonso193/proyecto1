@@ -98,7 +98,7 @@
 		https://docs.google.com/spreadsheets/d/1Ke_AAxDZ1lh2pk6SkSITdIdJbY1iyZVdYj9h7hYouh4/edit?usp=sharing
 
 4 de noviembre de 2016
-	Link para descarga del FIFO
+	Búsqueda de un FIFO funcional para el proyecto.
 	http://opencores.org/project,generic_fifos
 		presentes:
 			Cristian
@@ -119,3 +119,16 @@
 			Alonso
 			Luis
 			Mario
+
+29 de noviembre de 2016
+	Combinación de los bloques de SD Host.
+		presentes:
+			Cristian
+			Mario
+			Alonso
+
+6 de diciembre de 2016
+	Combinanción de los bloques de SD Host.
+		presentes:
+			Cristian
+
