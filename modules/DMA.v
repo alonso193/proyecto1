@@ -7,7 +7,6 @@
 
 module DMA(input reset,                 
            input clk, 
-           input END, // Senal de que ahi termina el dato
            input TFC, // Senal del fifo (cuando system_address = data_address + length)
            input cmd_reg_write, // Senal de inicio
            input cmd_reg_read, // Senal de inicio 
