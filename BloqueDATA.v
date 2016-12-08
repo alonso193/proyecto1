@@ -189,7 +189,7 @@ module PARALLEL_TO_SERIAL (
     //registros y wires internos
     reg [8:0]contador = 0;
 
-    always @ ( posedge clk_SD ) begin
+    always @ ( posedge SD_CLK ) begin
         if (reset_pts == 1) begin
             signal_out <= 0;
             contador <= 0;
@@ -212,14 +212,14 @@ module PARALLEL_TO_SERIAL (
 endmodule // PARALLEL_TO_SERIAL
 
 
-module SERIAL_TO_PARALLEL # (parameter SIZE=`PALABRA)
+module SERIAL_TO_PARALLEL # (parameter SIZE = `PALABRA)
 (
     input wire serial_in,
     input wire enable_stp,
     input wire SD_CLK,
     input wire RESET_L,
     output reg reception_complete,
-    output reg [SIZE-1] parallel_out
+    output reg [SIZE - 1:0] parallel_out
 );
 
 reg [8:0] contador;
@@ -235,7 +235,7 @@ begin
         begin
             if (enable_stp)
                 begin
-                    if (contador = SIZE)
+                    if (contador == SIZE)
                         begin
                             reception_complete <= 1;
                             contador <= 0;

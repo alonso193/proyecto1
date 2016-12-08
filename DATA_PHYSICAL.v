@@ -145,7 +145,7 @@ begin
             complete_Phy_DATA           = 0;
             ack_OUT_Phy_DATA            = 0;
             data_timeout_Phy_DATA       = 0;
-            reset_Wrapper_Phy_PS        = 1;  //solo esta en 1 porque el wrapper se resetea en 0
+            reset_Wrapper_Phy_PS        = 1;                 //solo esta en 1 porque el wrapper se resetea en 0
             enable_pts_Wrapper_Phy_PS   = 0;
             enable_stp_Wrapper_Phy_SP   = 0;
             dataParallel_Phy_PS         = 32'b0;
@@ -154,7 +154,7 @@ begin
             writeFIFO_enable_Phy_FIFO   = 0;
             readFIFO_enable_Phy_FIFO    = 0;
             dataReadToFIFO_Phy_FIFO     = 32'b0;
-            IO_enable_Phy_SD_CARD        = 0   //por default el host recibe datos desde la tarjeta SD
+            IO_enable_Phy_SD_CARD        = 0;                //por default el host recibe datos desde la tarjeta SD
 
             //avanza automaticamente a IDLE
             NEXT_STATE = IDLE;
