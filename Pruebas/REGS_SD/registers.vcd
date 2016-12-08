@@ -1,0 +1,340 @@
+$date
+	Thu Dec 08 09:30:11 2016
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module testbench $end
+$var wire 1 ! ack $end
+$var wire 5 " addr [4:0] $end
+$var wire 1 # clk $end
+$var wire 32 $ data_in [31:0] $end
+$var wire 32 % data_out [31:0] $end
+$var wire 1 & req $end
+$var wire 1 ' reset $end
+$var wire 1 ( rw $end
+$scope module b1 $end
+$var wire 8 ) ADMA_Error_Status [7:0] $end
+$var wire 16 * ADMA_System_Address_15 [15:0] $end
+$var wire 16 + ADMA_System_Address_31 [15:0] $end
+$var wire 16 , ADMA_System_Address_47 [15:0] $end
+$var wire 16 - ADMA_System_Address_63 [15:0] $end
+$var wire 32 . Argument [31:0] $end
+$var wire 16 / Argument0 [15:0] $end
+$var wire 16 0 Argument1 [15:0] $end
+$var wire 16 1 Auto_CMD12_Error_Status [15:0] $end
+$var wire 16 2 Block_Count [15:0] $end
+$var wire 8 3 Block_Gap_Control [7:0] $end
+$var wire 16 4 Block_Size [15:0] $end
+$var wire 16 5 Buffer_Data_Port0 [15:0] $end
+$var wire 16 6 Buffer_Data_Port1 [15:0] $end
+$var wire 16 7 Capabilities1 [15:0] $end
+$var wire 16 8 Capabilities2 [15:0] $end
+$var wire 16 9 Capabilities_Reserved_1 [15:0] $end
+$var wire 16 : Capabilities_Reserved_2 [15:0] $end
+$var wire 16 ; Clock_Control [15:0] $end
+$var wire 16 < Command [15:0] $end
+$var wire 16 = Error_Interrupt_Signal_Enable [15:0] $end
+$var wire 16 > Error_Interrupt_Status [15:0] $end
+$var wire 16 ? Error_Interrupt_Status_Enable [15:0] $end
+$var wire 16 @ Force_Event_for_Auto_CMD12_Error_Status [15:0] $end
+$var wire 16 A Force_Event_for_Error_Interrupt_Status [15:0] $end
+$var wire 8 B Host_Control [7:0] $end
+$var wire 16 C Host_Controller_Version [15:0] $end
+$var wire 16 D Maximum_Current_Capabilities1 [15:0] $end
+$var wire 16 E Maximum_Current_Capabilities2 [15:0] $end
+$var wire 16 F Maximum_Current_Capabilities_Reserved_1 [15:0] $end
+$var wire 16 G Maximum_Current_Capabilities_Reserved_2 [15:0] $end
+$var wire 16 H Normal_Interrupt_Signal_Enable [15:0] $end
+$var wire 16 I Normal_Interrupt_Status [15:0] $end
+$var wire 16 J Normal_Interrupt_Status_Enable [15:0] $end
+$var wire 8 K Power_Control [7:0] $end
+$var wire 16 L Present_State1 [15:0] $end
+$var wire 16 M Present_State2 [15:0] $end
+$var wire 16 N Response0 [15:0] $end
+$var wire 16 O Response1 [15:0] $end
+$var wire 16 P Response2 [15:0] $end
+$var wire 16 Q Response3 [15:0] $end
+$var wire 16 R Response4 [15:0] $end
+$var wire 16 S Response5 [15:0] $end
+$var wire 16 T Response6 [15:0] $end
+$var wire 16 U Response7 [15:0] $end
+$var wire 16 V SDMA_System_Address_High [15:0] $end
+$var wire 16 W SDMA_System_Address_Low [15:0] $end
+$var wire 16 X Slot_Interrupt_Status [15:0] $end
+$var wire 8 Y Software_Reset [7:0] $end
+$var wire 8 Z Timeout_Control [7:0] $end
+$var wire 16 [ Timeout_Reg [15:0] $end
+$var wire 16 \ Transfer_Mode [15:0] $end
+$var wire 8 ] Wakeup_Control [7:0] $end
+$var wire 5 ^ addr [4:0] $end
+$var wire 4 _ blockCount [3:0] $end
+$var wire 1 # clk $end
+$var wire 1 ` cmd_complete $end
+$var wire 6 a cmd_index [5:0] $end
+$var wire 1 b cmd_index_error $end
+$var wire 16 c data [15:0] $end
+$var wire 32 d data_in [31:0] $end
+$var wire 1 e multipleData $end
+$var wire 1 & req $end
+$var wire 1 ' reset $end
+$var wire 1 ( rw $end
+$var wire 1 f timeout_enable $end
+$var wire 1 g writeRead $end
+$var reg 1 h ack $end
+$var reg 32 i data_out [31:0] $end
+$var integer 32 j i [31:0] $end
+$upscope $end
+$scope module p1 $end
+$var wire 1 ! ack $end
+$var wire 32 k data_out [31:0] $end
+$var reg 5 l addr [4:0] $end
+$var reg 1 m clk $end
+$var reg 32 n data_in [31:0] $end
+$var reg 1 o req $end
+$var reg 1 p reset $end
+$var reg 1 q rw $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+xq
+1p
+xo
+bx n
+0m
+bx l
+bx k
+b11100 j
+bx i
+xh
+0g
+0f
+0e
+bx d
+b0 c
+zb
+b0 a
+0`
+b0 _
+bx ^
+b0 ]
+b0 \
+b0 [
+b0 Z
+b0 Y
+b0 X
+b0 W
+b0 V
+b0 U
+b0 T
+b0 S
+b0 R
+b0 Q
+b0 P
+b0 O
+b0 N
+b0 M
+b0 L
+b0 K
+b0 J
+b0 I
+b0 H
+b0 G
+b0 F
+b0 E
+b0 D
+b0 C
+b0 B
+b0 A
+b0 @
+b0 ?
+b0 >
+b0 =
+b0 <
+b0 ;
+b0 :
+b0 9
+b0 8
+b0 7
+b0 6
+b0 5
+b0 4
+b0 3
+b0 2
+b0 1
+b0 0
+b0 /
+b0 .
+b0 -
+b0 ,
+b0 +
+b0 *
+b0 )
+x(
+1'
+x&
+bx %
+bx $
+0#
+bx "
+x!
+$end
+#1
+b1 W
+1h
+1!
+1m
+1#
+b1 n
+b1 $
+b1 d
+0q
+0(
+1o
+1&
+b0 l
+b0 "
+b0 ^
+0p
+0'
+#2
+0m
+0#
+#3
+1m
+1#
+#4
+0m
+0#
+#5
+1m
+1#
+#6
+0m
+0#
+#7
+b1 i
+b1 %
+b1 k
+1m
+1#
+1q
+1(
+#8
+0m
+0#
+b1000000010000000000000001 n
+b1000000010000000000000001 $
+b1000000010000000000000001 d
+0q
+0(
+b100 l
+b100 "
+b100 ^
+#9
+b1 N
+b100000001 O
+1m
+1#
+#10
+0m
+0#
+#11
+1m
+1#
+#12
+0m
+0#
+#13
+1m
+1#
+#14
+0m
+0#
+1q
+1(
+#15
+0h
+0!
+1m
+1#
+0o
+0&
+#16
+0m
+0#
+b10001000000010001000000010000 n
+b10001000000010001000000010000 $
+b10001000000010001000000010000 d
+0q
+0(
+1o
+1&
+b10110 l
+b10110 "
+b10110 ^
+#17
+b1000000010000 *
+b1000100000001 +
+1h
+1!
+1m
+1#
+#18
+0m
+0#
+#19
+1m
+1#
+#20
+0m
+0#
+#21
+1m
+1#
+#22
+0m
+0#
+1q
+1(
+#23
+b10001000000010001000000010000 i
+b10001000000010001000000010000 %
+b10001000000010001000000010000 k
+1m
+1#
+#24
+0m
+0#
+#25
+1m
+1#
+#26
+0m
+0#
+#27
+1m
+1#
+#28
+0m
+0#
+#29
+1m
+1#
+#30
+0m
+0#
+#31
+1m
+1#
+#32
+0m
+0#
+#33
+1m
+1#

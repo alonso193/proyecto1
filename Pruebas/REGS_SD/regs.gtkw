@@ -1,0 +1,41 @@
+[*]
+[*] GTKWave Analyzer v3.3.48 (w)1999-2013 BSI
+[*] Thu Dec 08 15:18:33 2016
+[*]
+[dumpfile] "G:\UCR\II-2016\Digitales_II\registers.vcd"
+[dumpfile_mtime] "Thu Dec 08 15:07:53 2016"
+[dumpfile_size] 5181
+[savefile] "G:\UCR\II-2016\Digitales_II\regs.gtkw"
+[timestart] 0
+[size] 1366 705
+[pos] -139 -98
+*-3.005101 2 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testbench.
+[sst_width] 197
+[signals_width] 314
+[sst_expanded] 1
+[sst_vpaned_height] 190
+@28
+testbench.clk
+testbench.reset
+testbench.req
+testbench.rw
+@23
+testbench.addr[4:0]
+@22
+testbench.data_in[31:0]
+testbench.data_out[31:0]
+@28
+testbench.ack
+@22
+testbench.b1.SDMA_System_Address_High[15:0]
+testbench.b1.SDMA_System_Address_Low[15:0]
+testbench.b1.Response0[15:0]
+testbench.b1.Response1[15:0]
+testbench.b1.ADMA_System_Address_15[15:0]
+testbench.b1.ADMA_System_Address_31[15:0]
+testbench.b1.cmd_index[5:0]
+testbench.b1.blockCount[3:0]
+testbench.b1.Wakeup_Control[7:0]
+[pattern_trace] 1
+[pattern_trace] 0

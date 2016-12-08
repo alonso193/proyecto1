@@ -1,0 +1,358 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00B2FD00 .scope module, "testbench" "testbench" 2 3;
+ .timescale 0 0;
+P_00B469EC .param/l "addr_witdh" 2 6, +C4<0101>;
+P_00B46A00 .param/l "data_witdh" 2 5, +C4<0100000>;
+P_00B46A14 .param/l "reg_witdh" 2 7, +C4<011100>;
+v00B80458_0 .net "ack", 0 0, v00B7ED18_0; 1 drivers
+v00B80668_0 .net "addr", 4 0, v00C84820_0; 1 drivers
+v00B80400_0 .net "clk", 0 0, v00B49228_0; 1 drivers
+v00B80508_0 .net "data_in", 31 0, v00B49280_0; 1 drivers
+v00B806C0_0 .net "data_out", 31 0, v00B7F348_0; 1 drivers
+v00B80718_0 .net "req", 0 0, v00B431A8_0; 1 drivers
+v00B803A8_0 .net "reset", 0 0, v00B31678_0; 1 drivers
+v00B80770_0 .net "rw", 0 0, v00B316D0_0; 1 drivers
+S_00B2FF20 .scope module, "b1" "REG" 2 31, 3 1, S_00B2FD00;
+ .timescale 0 0;
+P_00B46D04 .param/l "addr_witdh" 3 4, +C4<0101>;
+P_00B46D18 .param/l "data_witdh" 3 3, +C4<0100000>;
+P_00B46D2C .param/l "reg_witdh" 3 5, +C4<011100>;
+L_00B809A8 .functor BUFZ 16, L_00B7FC70, C4<0000000000000000>, C4<0000000000000000>, C4<0000000000000000>;
+L_00B80F20 .functor BUFZ 16, L_00B7FE80, C4<0000000000000000>, C4<0000000000000000>, C4<0000000000000000>;
+v00B48098_0 .net "ADMA_Error_Status", 7 0, L_00B81FD8; 1 drivers
+v00B480F0_0 .net "ADMA_System_Address_15", 15 0, L_00B81E78; 1 drivers
+v00B48148_0 .net "ADMA_System_Address_31", 15 0, L_00B81ED0; 1 drivers
+v00B427F0_0 .net "ADMA_System_Address_47", 15 0, L_00B81F28; 1 drivers
+v00B42848_0 .net "ADMA_System_Address_63", 15 0, L_00B81218; 1 drivers
+RS_00B4B2BC .resolv tri, L_00B80560, L_00B807C8, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>;
+v00B7A2F0_0 .net8 "Argument", 31 0, RS_00B4B2BC; 2 drivers
+v00B7A348_0 .net "Argument0", 15 0, L_00B7FC70; 1 drivers
+v00B7A298_0 .net "Argument1", 15 0, L_00B7FE80; 1 drivers
+v00B7A1E8_0 .net "Auto_CMD12_Error_Status", 15 0, L_00B7F850; 1 drivers
+v00B7A4A8_0 .net "Block_Count", 15 0, L_00B80198; 1 drivers
+v00B7A6B8_0 .net "Block_Gap_Control", 7 0, L_00B7FD20; 1 drivers
+v00B7A3A0_0 .net "Block_Size", 15 0, L_00B80610; 1 drivers
+v00B7A500_0 .net "Buffer_Data_Port0", 15 0, L_00B80248; 1 drivers
+v00B7A190_0 .net "Buffer_Data_Port1", 15 0, L_00B7FAB8; 1 drivers
+v00B7A3F8_0 .net "Capabilities1", 15 0, L_00B81D18; 1 drivers
+v00B7A450_0 .net "Capabilities2", 15 0, L_00B81D70; 1 drivers
+v00B7A558_0 .net "Capabilities_Reserved_1", 15 0, L_00B81B60; 1 drivers
+v00B7A5B0_0 .net "Capabilities_Reserved_2", 15 0, L_00B81F80; 1 drivers
+v00B7A088_0 .net "Clock_Control", 15 0, L_00B80038; 1 drivers
+v00B7A240_0 .net "Command", 15 0, L_00B7FF88; 1 drivers
+v00B7A660_0 .net "Error_Interrupt_Signal_Enable", 15 0, L_00B802A0; 1 drivers
+v00B7A710_0 .net "Error_Interrupt_Status", 15 0, L_00B7FE28; 1 drivers
+v00B7A0E0_0 .net "Error_Interrupt_Status_Enable", 15 0, L_00B80090; 1 drivers
+v00B7A138_0 .net "Force_Event_for_Auto_CMD12_Error_Status", 15 0, L_00B81CC0; 1 drivers
+v00B7A768_0 .net "Force_Event_for_Error_Interrupt_Status", 15 0, L_00B81E20; 1 drivers
+v00B7A030_0 .net "Host_Control", 7 0, L_00B80140; 1 drivers
+v00B7A608_0 .net "Host_Controller_Version", 15 0, L_00B814D8; 1 drivers
+v00B7EB08_0 .net "Maximum_Current_Capabilities1", 15 0, L_00B81C10; 1 drivers
+v00B7F088_0 .net "Maximum_Current_Capabilities2", 15 0, L_00B81C68; 1 drivers
+v00B7ED70_0 .net "Maximum_Current_Capabilities_Reserved_1", 15 0, L_00B81BB8; 1 drivers
+v00B7F138_0 .net "Maximum_Current_Capabilities_Reserved_2", 15 0, L_00B81DC8; 1 drivers
+v00B7F030_0 .net "Normal_Interrupt_Signal_Enable", 15 0, L_00B800E8; 1 drivers
+v00B7EE20_0 .net "Normal_Interrupt_Status", 15 0, L_00B7FED8; 1 drivers
+v00B7EA58_0 .net "Normal_Interrupt_Status_Enable", 15 0, L_00B7FFE0; 1 drivers
+v00B7E9A8_0 .net "Power_Control", 7 0, L_00B7FBC0; 1 drivers
+v00B7EED0_0 .net "Present_State1", 15 0, L_00B7F958; 1 drivers
+v00B7E8A0_0 .net "Present_State2", 15 0, L_00B7FA08; 1 drivers
+v00B7EC10_0 .net "Response0", 15 0, L_00B7FB10; 1 drivers
+v00B7EF28_0 .net "Response1", 15 0, L_00B802F8; 1 drivers
+v00B7E848_0 .net "Response2", 15 0, L_00B7FA60; 1 drivers
+v00B7F0E0_0 .net "Response3", 15 0, L_00B7F900; 1 drivers
+v00B7EF80_0 .net "Response4", 15 0, L_00B801F0; 1 drivers
+v00B7EB60_0 .net "Response5", 15 0, L_00B7FC18; 1 drivers
+v00B7E8F8_0 .net "Response6", 15 0, L_00B7F8A8; 1 drivers
+v00B7ECC0_0 .net "Response7", 15 0, L_00B7FB68; 1 drivers
+v00B7EDC8_0 .net "SDMA_System_Address_High", 15 0, L_00B805B8; 1 drivers
+v00B7F240_0 .net "SDMA_System_Address_Low", 15 0, L_00B804B0; 1 drivers
+v00B7F2F0_0 .net "Slot_Interrupt_Status", 15 0, L_00B81798; 1 drivers
+v00B7EE78_0 .net "Software_Reset", 7 0, L_00B7FDD0; 1 drivers
+v00B7EFD8_0 .net "Timeout_Control", 7 0, L_00B7F9B0; 1 drivers
+v00B7EA00_0 .net "Timeout_Reg", 15 0, L_00B81270; 1 drivers
+v00B7F190_0 .net "Transfer_Mode", 15 0, L_00B7FCC8; 1 drivers
+v00B7EAB0_0 .net "Wakeup_Control", 7 0, L_00B7FD78; 1 drivers
+v00B7F1E8_0 .net *"_s3", 15 0, L_00B809A8; 1 drivers
+v00B7EBB8_0 .net *"_s7", 15 0, L_00B80F20; 1 drivers
+v00B7ED18_0 .var "ack", 0 0;
+v00B7EC68_0 .alias "addr", 4 0, v00B80668_0;
+v00B7E950_0 .net "blockCount", 3 0, L_00B7FF30; 1 drivers
+v00B7F298_0 .alias "clk", 0 0, v00B80400_0;
+RS_00B4B784 .resolv tri, L_00B817F0, L_00B81690, C4<z>, C4<z>;
+v00B7F3A0_0 .net8 "cmd_complete", 0 0, RS_00B4B784; 2 drivers
+v00B7F710_0 .net "cmd_index", 5 0, L_00B80350; 1 drivers
+v00B7F4A8_0 .net "cmd_index_error", 0 0, C4<z>; 0 drivers
+v00B7F6B8_0 .net "data", 15 0, L_00B81A58; 1 drivers
+v00B7F450_0 .alias "data_in", 31 0, v00B80508_0;
+v00B7F348_0 .var "data_out", 31 0;
+v00B7F608_0 .var/i "i", 31 0;
+v00B7F3F8_0 .net "multipleData", 0 0, L_00B81588; 1 drivers
+v00B7F500 .array "regs", 27 0, 31 0;
+v00B7F558_0 .alias "req", 0 0, v00B80718_0;
+v00B7F768_0 .alias "reset", 0 0, v00B803A8_0;
+v00B7F5B0_0 .alias "rw", 0 0, v00B80770_0;
+v00B7F660_0 .net "timeout_enable", 0 0, L_00B815E0; 1 drivers
+v00B7F7C0_0 .net "writeRead", 0 0, L_00B81AB0; 1 drivers
+E_00B2AD30 .event edge, v00B31678_0;
+E_00B2AFF0 .event posedge, v00B49228_0;
+E_00B2B070 .event edge, v00B7F4A8_0;
+E_00B2B030 .event edge, v00B7F3A0_0;
+L_00B80560 .part/pv L_00B809A8, 0, 16, 32;
+L_00B807C8 .part/pv L_00B80F20, 16, 16, 32;
+L_00B80350 .part L_00B7FF88, 8, 6;
+v00B7F500_0 .array/port v00B7F500, 0;
+L_00B804B0 .part v00B7F500_0, 0, 16;
+L_00B805B8 .part v00B7F500_0, 16, 16;
+v00B7F500_1 .array/port v00B7F500, 1;
+L_00B80610 .part v00B7F500_1, 0, 16;
+L_00B80198 .part v00B7F500_1, 16, 16;
+L_00B7FF30 .part L_00B80198, 0, 4;
+v00B7F500_2 .array/port v00B7F500, 2;
+L_00B7FC70 .part v00B7F500_2, 0, 16;
+L_00B7FE80 .part v00B7F500_2, 16, 16;
+v00B7F500_3 .array/port v00B7F500, 3;
+L_00B7FCC8 .part v00B7F500_3, 0, 16;
+L_00B7FF88 .part v00B7F500_3, 16, 16;
+v00B7F500_4 .array/port v00B7F500, 4;
+L_00B7FB10 .part v00B7F500_4, 0, 16;
+L_00B802F8 .part v00B7F500_4, 16, 16;
+v00B7F500_5 .array/port v00B7F500, 5;
+L_00B7FA60 .part v00B7F500_5, 0, 16;
+L_00B7F900 .part v00B7F500_5, 16, 16;
+v00B7F500_6 .array/port v00B7F500, 6;
+L_00B801F0 .part v00B7F500_6, 0, 16;
+L_00B7FC18 .part v00B7F500_6, 16, 16;
+v00B7F500_7 .array/port v00B7F500, 7;
+L_00B7F8A8 .part v00B7F500_7, 0, 16;
+L_00B7FB68 .part v00B7F500_7, 16, 16;
+v00B7F500_8 .array/port v00B7F500, 8;
+L_00B80248 .part v00B7F500_8, 0, 16;
+L_00B7FAB8 .part v00B7F500_8, 16, 16;
+v00B7F500_9 .array/port v00B7F500, 9;
+L_00B7F958 .part v00B7F500_9, 0, 16;
+L_00B7FA08 .part v00B7F500_9, 16, 16;
+v00B7F500_10 .array/port v00B7F500, 10;
+L_00B80140 .part v00B7F500_10, 0, 8;
+L_00B7FBC0 .part v00B7F500_10, 8, 8;
+L_00B7FD20 .part v00B7F500_10, 16, 8;
+L_00B7FD78 .part v00B7F500_10, 24, 8;
+v00B7F500_11 .array/port v00B7F500, 11;
+L_00B80038 .part v00B7F500_11, 0, 16;
+L_00B7F9B0 .part v00B7F500_11, 16, 8;
+L_00B7FDD0 .part v00B7F500_11, 24, 8;
+v00B7F500_12 .array/port v00B7F500, 12;
+L_00B7FED8 .part v00B7F500_12, 0, 16;
+L_00B7FE28 .part v00B7F500_12, 16, 16;
+v00B7F500_13 .array/port v00B7F500, 13;
+L_00B7FFE0 .part v00B7F500_13, 0, 16;
+L_00B80090 .part v00B7F500_13, 16, 16;
+v00B7F500_14 .array/port v00B7F500, 14;
+L_00B800E8 .part v00B7F500_14, 0, 16;
+L_00B802A0 .part v00B7F500_14, 16, 16;
+v00B7F500_15 .array/port v00B7F500, 15;
+L_00B7F850 .part v00B7F500_15, 0, 16;
+v00B7F500_16 .array/port v00B7F500, 16;
+L_00B81D18 .part v00B7F500_16, 0, 16;
+L_00B81D70 .part v00B7F500_16, 16, 16;
+v00B7F500_17 .array/port v00B7F500, 17;
+L_00B81B60 .part v00B7F500_17, 0, 16;
+L_00B81F80 .part v00B7F500_17, 16, 16;
+v00B7F500_18 .array/port v00B7F500, 18;
+L_00B81C10 .part v00B7F500_18, 0, 16;
+L_00B81C68 .part v00B7F500_18, 16, 16;
+v00B7F500_19 .array/port v00B7F500, 19;
+L_00B81BB8 .part v00B7F500_19, 0, 16;
+L_00B81DC8 .part v00B7F500_19, 16, 16;
+v00B7F500_20 .array/port v00B7F500, 20;
+L_00B81CC0 .part v00B7F500_20, 0, 16;
+L_00B81E20 .part v00B7F500_20, 16, 16;
+v00B7F500_21 .array/port v00B7F500, 21;
+L_00B81FD8 .part v00B7F500_21, 0, 8;
+v00B7F500_22 .array/port v00B7F500, 22;
+L_00B81E78 .part v00B7F500_22, 0, 16;
+L_00B81ED0 .part v00B7F500_22, 16, 16;
+v00B7F500_23 .array/port v00B7F500, 23;
+L_00B81F28 .part v00B7F500_23, 0, 16;
+L_00B81218 .part v00B7F500_23, 16, 16;
+L_00B81798 .part v00B7F500_19, 0, 16;
+L_00B814D8 .part v00B7F500_19, 16, 16;
+v00B7F500_24 .array/port v00B7F500, 24;
+L_00B81270 .part v00B7F500_24, 0, 16;
+L_00B81A58 .part v00B7F500_24, 16, 16;
+L_00B815E0 .part L_00B81A58, 0, 1;
+L_00B81AB0 .part L_00B81A58, 1, 1;
+L_00B81588 .part L_00B81A58, 2, 1;
+v00B7F500_25 .array/port v00B7F500, 25;
+L_00B817F0 .part v00B7F500_25, 0, 1;
+L_00B81690 .part v00B7F500_25, 0, 1;
+S_00B30030 .scope module, "p1" "probador" 2 32, 4 1, S_00B2FD00;
+ .timescale 0 0;
+P_00B46644 .param/l "addr_witdh" 4 6, +C4<0101>;
+P_00B46658 .param/l "data_witdh" 4 5, +C4<0100000>;
+P_00B4666C .param/l "reg_witdh" 4 7, +C4<011100>;
+v00C848D0_0 .alias "ack", 0 0, v00B80458_0;
+v00C84820_0 .var "addr", 4 0;
+v00B49228_0 .var "clk", 0 0;
+v00B49280_0 .var "data_in", 31 0;
+v00B43150_0 .alias "data_out", 31 0, v00B806C0_0;
+v00B431A8_0 .var "req", 0 0;
+v00B31678_0 .var "reset", 0 0;
+v00B316D0_0 .var "rw", 0 0;
+    .scope S_00B2FF20;
+T_0 ;
+    %wait E_00B2B030;
+    %load/v 8, v00B7F3A0_0, 1;
+    %ix/load 3, 25, 0; address
+    %ix/load 0, 1, 0; word width
+    %ix/load 1, 0, 0; part off
+    %assign/av v00B7F500, 0, 8;
+t_0 ;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_00B2FF20;
+T_1 ;
+    %wait E_00B2B070;
+    %load/v 8, v00B7F4A8_0, 1;
+    %ix/load 3, 25, 0; address
+    %ix/load 0, 1, 0; word width
+    %ix/load 1, 1, 0; part off
+    %assign/av v00B7F500, 0, 8;
+t_1 ;
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_00B2FF20;
+T_2 ;
+    %wait E_00B2AFF0;
+    %load/v 8, v00B7F558_0, 1;
+    %jmp/0xz  T_2.0, 8;
+    %load/v 8, v00B7F5B0_0, 1;
+    %jmp/0xz  T_2.2, 8;
+    %ix/getv 3, v00B7EC68_0;
+    %load/av 8, v00B7F500, 32;
+    %ix/load 0, 32, 0;
+    %assign/v0 v00B7F348_0, 0, 8;
+    %ix/load 0, 1, 0;
+    %assign/v0 v00B7ED18_0, 0, 1;
+    %jmp T_2.3;
+T_2.2 ;
+    %load/v 8, v00B7F450_0, 32;
+    %ix/getv 3, v00B7EC68_0;
+    %jmp/1 t_2, 4;
+    %ix/load 0, 32, 0; word width
+    %ix/load 1, 0, 0; part off
+    %assign/av v00B7F500, 0, 8;
+t_2 ;
+    %ix/load 0, 1, 0;
+    %assign/v0 v00B7ED18_0, 0, 1;
+T_2.3 ;
+    %jmp T_2.1;
+T_2.0 ;
+    %load/v 8, v00B7F348_0, 32;
+    %ix/load 0, 32, 0;
+    %assign/v0 v00B7F348_0, 0, 8;
+    %ix/load 0, 1, 0;
+    %assign/v0 v00B7ED18_0, 0, 0;
+T_2.1 ;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_00B2FF20;
+T_3 ;
+    %wait E_00B2AD30;
+    %load/v 8, v00B7F768_0, 1;
+    %jmp/0xz  T_3.0, 8;
+    %set/v v00B7F608_0, 0, 32;
+T_3.2 ;
+    %load/v 8, v00B7F608_0, 32;
+   %cmpi/s 8, 28, 32;
+    %jmp/0xz T_3.3, 5;
+    %ix/getv/s 3, v00B7F608_0;
+   %jmp/1 t_3, 4;
+   %ix/load 1, 0, 0;
+   %set/av v00B7F500, 0, 32;
+t_3 ;
+    %ix/load 0, 1, 0;
+    %load/vp0/s 8, v00B7F608_0, 32;
+    %set/v v00B7F608_0, 8, 32;
+    %jmp T_3.2;
+T_3.3 ;
+T_3.0 ;
+    %jmp T_3;
+    .thread T_3, $push;
+    .scope S_00B30030;
+T_4 ;
+    %set/v v00B31678_0, 1, 1;
+    %end;
+    .thread T_4;
+    .scope S_00B30030;
+T_5 ;
+    %vpi_call 4 40 "$display", "Inicia prueba";
+    %delay 1, 0;
+    %set/v v00B31678_0, 0, 1;
+    %set/v v00C84820_0, 0, 5;
+    %set/v v00B431A8_0, 1, 1;
+    %set/v v00B316D0_0, 0, 1;
+    %movi 8, 1, 32;
+    %set/v v00B49280_0, 8, 32;
+    %delay 6, 0;
+    %set/v v00B316D0_0, 1, 1;
+    %delay 1, 0;
+    %movi 8, 4, 5;
+    %set/v v00C84820_0, 8, 5;
+    %set/v v00B431A8_0, 1, 1;
+    %set/v v00B316D0_0, 0, 1;
+    %movi 8, 16842753, 32;
+    %set/v v00B49280_0, 8, 32;
+    %delay 6, 0;
+    %set/v v00B316D0_0, 1, 1;
+    %delay 1, 0;
+    %set/v v00B431A8_0, 0, 1;
+    %delay 1, 0;
+    %movi 8, 22, 5;
+    %set/v v00C84820_0, 8, 5;
+    %set/v v00B431A8_0, 1, 1;
+    %set/v v00B316D0_0, 0, 1;
+    %movi 8, 285282320, 32;
+    %set/v v00B49280_0, 8, 32;
+    %delay 6, 0;
+    %set/v v00B316D0_0, 1, 1;
+    %delay 11, 0;
+    %vpi_call 4 58 "$finish";
+    %end;
+    .thread T_5;
+    .scope S_00B30030;
+T_6 ;
+    %set/v v00B49228_0, 0, 1;
+    %end;
+    .thread T_6;
+    .scope S_00B30030;
+T_7 ;
+    %delay 1, 0;
+    %load/v 8, v00B49228_0, 1;
+    %inv 8, 1;
+    %set/v v00B49228_0, 8, 1;
+    %jmp T_7;
+    .thread T_7;
+    .scope S_00B30030;
+T_8 ;
+    %vpi_call 4 71 "$monitor", "ack: %b", v00C848D0_0;
+    %end;
+    .thread T_8;
+    .scope S_00B2FD00;
+T_9 ;
+    %vpi_call 2 27 "$dumpfile", "registers.vcd";
+    %vpi_call 2 28 "$dumpvars", 1'sb0, S_00B2FD00;
+    %end;
+    .thread T_9;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "probador_tb.v";
+    "./REG.v";
+    "./probador_regs.v";
