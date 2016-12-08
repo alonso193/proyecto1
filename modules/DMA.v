@@ -1,3 +1,9 @@
+// *****************************
+// Luis Fernando Mora
+// B24449
+// Circuitos Digitales II
+// Prof Enrique Coen
+// *****************************
 
 module DMA(input reset,                 
            input clk, 
