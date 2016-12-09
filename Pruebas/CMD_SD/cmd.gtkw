@@ -1,0 +1,33 @@
+[*]
+[*] GTKWave Analyzer v3.3.62 (w)1999-2014 BSI
+[*] Fri Dec  9 15:41:37 2016
+[*]
+[dumpfile] "/home/alonso/Documentos/DocumentosUCR/CircuitosDigitales2/Proyecto1/proyecto1/prueba.vcd"
+[dumpfile_mtime] "Fri Dec  9 15:39:10 2016"
+[dumpfile_size] 4683
+[savefile] "/home/alonso/Documentos/DocumentosUCR/CircuitosDigitales2/Proyecto1/proyecto1/Pruebas/CMD_SD/cmd.gtkw"
+[timestart] 0
+[size] 1366 702
+[pos] -98 -98
+*-4.091462 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 218
+[signals_width] 174
+[sst_expanded] 1
+[sst_vpaned_height] 179
+@28
+probador.CMD_PIN_OUT
+probador.IO_enable_pin
+probador.clk_SD
+probador.clk_host
+@22
+probador.cmd_argument[31:0]
+probador.cmd_index[5:0]
+@28
+probador.cmd_complete
+probador.cmd_index_error
+probador.new_command
+probador.reset_host
+@23
+probador.response[127:0]
+[pattern_trace] 1
+[pattern_trace] 0
