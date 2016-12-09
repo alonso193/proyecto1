@@ -1,40 +1,40 @@
-module probador ();
-        wire [31:0]cmd_argument;
-        wire [5:0]cmd_index;
-        wire [127:0]response;
-        CMD cmd1(clk_host, reset_host, new_command, cmd_argument, cmd_index, cmd_complete, cmd_index_error, response, CMD_PIN_OUT, IO_enable_pin, CMD_PIN_IN, clk_SD);
-        testbench t1(clk_host, reset_host, new_command, cmd_argument, cmd_index, cmd_complete, cmd_index_error, response, CMD_PIN_OUT, IO_enable_pin, CMD_PIN_IN, clk_SD);
-endmodule // probador
-
-module testbench (clk_host, reset_host, new_command, cmd_argument, cmd_index, cmd_complete, cmd_index_error, response, CMD_PIN_OUT, IO_enable_pin, CMD_PIN_IN, clk_SD);
-    output reg clk_host, reset_host, new_command;
-    output reg [31:0]cmd_argument;
-    output reg [5:0]cmd_index;
-    input cmd_complete, cmd_index_error;
-    input [127:0]response;
-    input CMD_PIN_OUT, IO_enable_pin;
-    output reg CMD_PIN_IN;
-    output reg clk_SD;
-
-    always begin
-        #1 clk_host = ~clk_host;
-    end
-    always begin
-        #5 clk_SD = ~clk_SD;
-    end
-
-    initial begin
-        $dumpfile("prueba.vcd");
-        $dumpvars;
-        clk_host = 1;
-        clk_SD = 1;
-        new_command = 0;
-        cmd_argument = 44;
-        cmd_index = 15;
-        #5 new_command = 1;
-        #50 $finish;
-    end
-endmodule // testbench
+// module probador ();
+//         wire [31:0]cmd_argument;
+//         wire [5:0]cmd_index;
+//         wire [127:0]response;
+//         CMD cmd1(clk_host, reset_host, new_command, cmd_argument, cmd_index, cmd_complete, cmd_index_error, response, CMD_PIN_OUT, IO_enable_pin, CMD_PIN_IN, clk_SD);
+//         testbench t1(clk_host, reset_host, new_command, cmd_argument, cmd_index, cmd_complete, cmd_index_error, response, CMD_PIN_OUT, IO_enable_pin, CMD_PIN_IN, clk_SD);
+// endmodule // probador
+//
+// module testbench (clk_host, reset_host, new_command, cmd_argument, cmd_index, cmd_complete, cmd_index_error, response, CMD_PIN_OUT, IO_enable_pin, CMD_PIN_IN, clk_SD);
+//     output reg clk_host, reset_host, new_command;
+//     output reg [31:0]cmd_argument;
+//     output reg [5:0]cmd_index;
+//     input cmd_complete, cmd_index_error;
+//     input [127:0]response;
+//     input CMD_PIN_OUT, IO_enable_pin;
+//     output reg CMD_PIN_IN;
+//     output reg clk_SD;
+//
+//     always begin
+//         #1 clk_host = ~clk_host;
+//     end
+//     always begin
+//         #5 clk_SD = ~clk_SD;
+//     end
+//
+//     initial begin
+//         $dumpfile("prueba.vcd");
+//         $dumpvars;
+//         clk_host = 1;
+//         clk_SD = 1;
+//         new_command = 0;
+//         cmd_argument = 44;
+//         cmd_index = 15;
+//         #5 new_command = 1;
+//         #50 $finish;
+//     end
+// endmodule // testbench
 
 module CMD (clk_host, reset_host, new_command, cmd_argument, cmd_index, cmd_complete, cmd_index_error, response, CMD_PIN_OUT, IO_enable_pin, CMD_PIN_IN, clk_SD);
     //entradas del CMD
