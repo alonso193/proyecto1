@@ -1,0 +1,5 @@
+read_verilog ./SD_host.v
+hierarchy; proc; opt; techmap; opt
+dfflibmap -liberty cmos_cells.lib
+abc -liberty cmos_cells.lib
+write_verilog -noattr ./sintetizado/SDHOST.v
