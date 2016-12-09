@@ -1,0 +1,313 @@
+$date
+	Fri Dec 09 00:08:53 2016
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module testbench $end
+$var wire 1 ! writeRead_DATA_Phy $end
+$var wire 1 " writeFIFO_enable_Phy_FIFO $end
+$var wire 1 # transmission_complete_PS_Phy $end
+$var wire 16 $ timeout_Reg_DATA_Phy [15:0] $end
+$var wire 1 % strobe_IN_DATA_Phy $end
+$var wire 1 & serial_Ready_Phy_DATA $end
+$var wire 1 ' reset_Wrapper_Phy_PS $end
+$var wire 1 ( reception_complete_SP_Phy $end
+$var wire 1 ) readFIFO_enable_Phy_FIFO $end
+$var wire 1 * pad_state_Phy_PAD $end
+$var wire 1 + pad_enable_Phy_PAD $end
+$var wire 1 , multiple_DATA_Phy $end
+$var wire 1 - idle_in_DATA_Phy $end
+$var wire 1 . enable_stp_Wrapper_Phy_SP $end
+$var wire 1 / enable_pts_Wrapper_Phy_PS $end
+$var wire 1 0 data_timeout_Phy_DATA $end
+$var wire 32 1 data_read_SP_Phy [31:0] $end
+$var wire 32 2 dataReadToFIFO_Phy_FIFO [31:0] $end
+$var wire 32 3 dataParallel_Phy_PS [31:0] $end
+$var wire 32 4 dataFromFIFO_FIFO_Phy [31:0] $end
+$var wire 1 5 complete_Phy_DATA $end
+$var wire 4 6 blocks_DATA_Phy [3:0] $end
+$var wire 1 7 ack_OUT_Phy_DATA $end
+$var wire 1 8 ack_IN_DATA_Phy $end
+$var wire 1 9 SD_CLK $end
+$var wire 1 : RESET_L $end
+$var wire 1 ; IO_enable_Phy_SD_CARD $end
+$scope module DATAPhy $end
+$var wire 1 ! writeRead_DATA_Phy $end
+$var wire 1 # transmission_complete_PS_Phy $end
+$var wire 16 < timeout_Reg_DATA_Phy [15:0] $end
+$var wire 1 % strobe_IN_DATA_Phy $end
+$var wire 1 ( reception_complete_SP_Phy $end
+$var wire 1 , multiple_DATA_Phy $end
+$var wire 1 - idle_in_DATA_Phy $end
+$var wire 32 = data_read_SP_Phy [31:0] $end
+$var wire 32 > dataFromFIFO_FIFO_Phy [31:0] $end
+$var wire 4 ? blocks_DATA_Phy [3:0] $end
+$var wire 1 8 ack_IN_DATA_Phy $end
+$var wire 1 9 SD_CLK $end
+$var wire 1 : RESET_L $end
+$var reg 1 ; IO_enable_Phy_SD_CARD $end
+$var reg 11 @ NEXT_STATE [10:0] $end
+$var reg 11 A STATE [10:0] $end
+$var reg 1 7 ack_OUT_Phy_DATA $end
+$var reg 4 B blocks [3:0] $end
+$var reg 1 5 complete_Phy_DATA $end
+$var reg 32 C dataParallel_Phy_PS [31:0] $end
+$var reg 32 D dataReadToFIFO_Phy_FIFO [31:0] $end
+$var reg 1 0 data_timeout_Phy_DATA $end
+$var reg 1 / enable_pts_Wrapper_Phy_PS $end
+$var reg 1 . enable_stp_Wrapper_Phy_SP $end
+$var reg 1 + pad_enable_Phy_PAD $end
+$var reg 1 * pad_state_Phy_PAD $end
+$var reg 1 ) readFIFO_enable_Phy_FIFO $end
+$var reg 1 ' reset_Wrapper_Phy_PS $end
+$var reg 1 & serial_Ready_Phy_DATA $end
+$var reg 16 E timeout_input [15:0] $end
+$var reg 1 " writeFIFO_enable_Phy_FIFO $end
+$upscope $end
+$scope module DataTest $end
+$var reg 1 : RESET_L $end
+$var reg 1 9 SD_CLK $end
+$var reg 1 8 ack_IN_DATA_Phy $end
+$var reg 4 F blocks_DATA_Phy [3:0] $end
+$var reg 32 G dataFromFIFO_FIFO_Phy [31:0] $end
+$var reg 32 H data_read_SP_Phy [31:0] $end
+$var reg 1 - idle_in_DATA_Phy $end
+$var reg 1 , multiple_DATA_Phy $end
+$var reg 1 ( reception_complete_SP_Phy $end
+$var reg 1 % strobe_IN_DATA_Phy $end
+$var reg 16 I timeout_Reg_DATA_Phy [15:0] $end
+$var reg 1 # transmission_complete_PS_Phy $end
+$var reg 1 ! writeRead_DATA_Phy $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1100100 I
+b11001010111111101100101011111110 H
+b11001010111111101100101011111110 G
+b1111 F
+bx E
+bx D
+bx C
+bx B
+bx A
+b10 @
+b1111 ?
+b11001010111111101100101011111110 >
+b11001010111111101100101011111110 =
+b1100100 <
+x;
+x:
+09
+08
+x7
+b1111 6
+x5
+b11001010111111101100101011111110 4
+bx 3
+bx 2
+b11001010111111101100101011111110 1
+x0
+x/
+x.
+0-
+0,
+x+
+x*
+x)
+0(
+x'
+x&
+1%
+b1100100 $
+0#
+x"
+1!
+$end
+#10000
+b100 @
+b0 E
+b0 B
+1&
+b10 A
+19
+#20000
+09
+#30000
+b1000 @
+b11001010111111101100101011111110 3
+b11001010111111101100101011111110 C
+1"
+b100 A
+19
+#40000
+09
+#50000
+b10000 @
+1+
+1*
+0;
+1/
+b1000 A
+19
+1:
+#60000
+09
+0:
+#70000
+b10 @
+b0 2
+b0 D
+0)
+0"
+0+
+0*
+b0 3
+b0 C
+0.
+0/
+1'
+00
+07
+05
+0&
+b1 A
+19
+#80000
+09
+#90000
+b100 @
+1&
+b10 A
+19
+1:
+#100000
+09
+#110000
+b1000 @
+b11001010111111101100101011111110 3
+b11001010111111101100101011111110 C
+1"
+b100 A
+19
+#120000
+09
+#130000
+b10000 @
+1+
+1*
+1/
+b1000 A
+19
+#140000
+09
+#150000
+b100000 @
+1;
+b10000 A
+19
+#160000
+09
+#170000
+b1 E
+0*
+1.
+0/
+b100000 A
+19
+#180000
+09
+#190000
+15
+b1000000000 A
+b1000000000 @
+b1 B
+b10 E
+19
+1(
+#200000
+09
+#210000
+19
+#220000
+b10000000000 @
+09
+18
+#230000
+b10 @
+17
+b10000000000 A
+19
+#240000
+09
+#250000
+b100 @
+b0 E
+b0 B
+b10 A
+19
+#260000
+09
+#270000
+b1000 @
+b100 A
+19
+#280000
+09
+#290000
+b10000 @
+1*
+0;
+1/
+b1000 A
+19
+#300000
+09
+#310000
+b100000 @
+1;
+b10000 A
+19
+#320000
+09
+#330000
+b1000000000 @
+b1 B
+b1 E
+0*
+0/
+b100000 A
+19
+#340000
+09
+#350000
+b10000000000 @
+b1000000000 A
+19
+#360000
+09
+#370000
+b10 @
+b10000000000 A
+19
+#380000
+09
+#390000
+b100 @
+b0 E
+b0 B
+b10 A
+19
+#400000
+09
+#410000
+b1000 @
+b100 A
+19
+#420000
+09

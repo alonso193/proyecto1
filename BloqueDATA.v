@@ -190,7 +190,7 @@ module PARALLEL_TO_SERIAL (
     reg [8:0]contador = 0;
 
     always @ ( posedge SD_CLK ) begin
-        if (reset_pts == 1) begin
+        if (~reset_pts) begin
             signal_out <= 0;
             contador <= 0;
             parallel_complete <= 0;

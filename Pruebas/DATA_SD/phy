@@ -1,0 +1,489 @@
+#! c:/iverilog-x86/bin/vvp
+:ivl_version "10.0 (stable)" "(v10_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_02735600 .scope module, "testbench" "testbench" 2 17;
+ .timescale -9 -12;
+v02741160_0 .net "IO_enable_Phy_SD_CARD", 0 0, v02733c38_0;  1 drivers
+v02740a28_0 .net "RESET_L", 0 0, v027415d8_0;  1 drivers
+v02740e48_0 .net "SD_CLK", 0 0, v027416e0_0;  1 drivers
+v02741210_0 .net "ack_IN_DATA_Phy", 0 0, v02741630_0;  1 drivers
+v02740b30_0 .net "ack_OUT_Phy_DATA", 0 0, v027405e0_0;  1 drivers
+v02740870_0 .net "blocks_DATA_Phy", 3 0, v02741318_0;  1 drivers
+v02740d40_0 .net "complete_Phy_DATA", 0 0, v02740378_0;  1 drivers
+v027408c8_0 .net "dataFromFIFO_FIFO_Phy", 31 0, v02741738_0;  1 drivers
+v02740fa8_0 .net "dataParallel_Phy_PS", 31 0, v02740480_0;  1 drivers
+v027411b8_0 .net "dataReadToFIFO_Phy_FIFO", 31 0, v02740638_0;  1 drivers
+v02740a80_0 .net "data_read_SP_Phy", 31 0, v027413c8_0;  1 drivers
+v02740ad8_0 .net "data_timeout_Phy_DATA", 0 0, v02740320_0;  1 drivers
+v02740b88_0 .net "enable_pts_Wrapper_Phy_PS", 0 0, v02740270_0;  1 drivers
+v02741268_0 .net "enable_stp_Wrapper_Phy_SP", 0 0, v027401c0_0;  1 drivers
+v02740be0_0 .net "idle_in_DATA_Phy", 0 0, v02741688_0;  1 drivers
+v02740ce8_0 .net "multiple_DATA_Phy", 0 0, v02741420_0;  1 drivers
+v027407c0_0 .net "pad_enable_Phy_PAD", 0 0, v027406e8_0;  1 drivers
+v02740920_0 .net "pad_state_Phy_PAD", 0 0, v027404d8_0;  1 drivers
+v02740ea0_0 .net "readFIFO_enable_Phy_FIFO", 0 0, v02740530_0;  1 drivers
+v02740df0_0 .net "reception_complete_SP_Phy", 0 0, v02741478_0;  1 drivers
+v02740ef8_0 .net "reset_Wrapper_Phy_PS", 0 0, v02740588_0;  1 drivers
+v027409d0_0 .net "serial_Ready_Phy_DATA", 0 0, v02740690_0;  1 drivers
+v02740818_0 .net "strobe_IN_DATA_Phy", 0 0, v02740c38_0;  1 drivers
+v02740f50_0 .net "timeout_Reg_DATA_Phy", 15 0, v02740d98_0;  1 drivers
+v02741108_0 .net "transmission_complete_PS_Phy", 0 0, v02740c90_0;  1 drivers
+v02741000_0 .net "writeFIFO_enable_Phy_FIFO", 0 0, v02741528_0;  1 drivers
+v02741058_0 .net "writeRead_DATA_Phy", 0 0, v02740978_0;  1 drivers
+S_0003edf0 .scope module, "DATAPhy" "DATA_PHYSICAL" 2 71, 3 69 0, S_02735600;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "SD_CLK"
+    .port_info 1 /INPUT 1 "RESET_L"
+    .port_info 2 /INPUT 1 "strobe_IN_DATA_Phy"
+    .port_info 3 /INPUT 1 "ack_IN_DATA_Phy"
+    .port_info 4 /INPUT 16 "timeout_Reg_DATA_Phy"
+    .port_info 5 /INPUT 4 "blocks_DATA_Phy"
+    .port_info 6 /INPUT 1 "writeRead_DATA_Phy"
+    .port_info 7 /INPUT 1 "multiple_DATA_Phy"
+    .port_info 8 /INPUT 1 "idle_in_DATA_Phy"
+    .port_info 9 /INPUT 1 "transmission_complete_PS_Phy"
+    .port_info 10 /INPUT 1 "reception_complete_SP_Phy"
+    .port_info 11 /INPUT 32 "data_read_SP_Phy"
+    .port_info 12 /INPUT 32 "dataFromFIFO_FIFO_Phy"
+    .port_info 13 /OUTPUT 1 "serial_Ready_Phy_DATA"
+    .port_info 14 /OUTPUT 1 "complete_Phy_DATA"
+    .port_info 15 /OUTPUT 1 "ack_OUT_Phy_DATA"
+    .port_info 16 /OUTPUT 1 "data_timeout_Phy_DATA"
+    .port_info 17 /OUTPUT 1 "reset_Wrapper_Phy_PS"
+    .port_info 18 /OUTPUT 1 "enable_pts_Wrapper_Phy_PS"
+    .port_info 19 /OUTPUT 1 "enable_stp_Wrapper_Phy_SP"
+    .port_info 20 /OUTPUT 32 "dataParallel_Phy_PS"
+    .port_info 21 /OUTPUT 1 "pad_state_Phy_PAD"
+    .port_info 22 /OUTPUT 1 "pad_enable_Phy_PAD"
+    .port_info 23 /OUTPUT 1 "writeFIFO_enable_Phy_FIFO"
+    .port_info 24 /OUTPUT 1 "readFIFO_enable_Phy_FIFO"
+    .port_info 25 /OUTPUT 32 "dataReadToFIFO_Phy_FIFO"
+    .port_info 26 /OUTPUT 1 "IO_enable_Phy_SD_CARD"
+P_0274f580 .param/l "FIFO_READ" 0 3 102, C4<00000000100>;
+P_0274f5a0 .param/l "IDLE" 0 3 101, C4<00000000010>;
+P_0274f5c0 .param/l "LOAD_WRITE" 0 3 103, C4<00000001000>;
+P_0274f5e0 .param/l "READ" 0 3 106, C4<00001000000>;
+P_0274f600 .param/l "READ_FIFO_WRITE" 0 3 107, C4<00010000000>;
+P_0274f620 .param/l "READ_WRAPPER_RESET" 0 3 108, C4<00100000000>;
+P_0274f640 .param/l "RESET" 0 3 100, C4<00000000001>;
+P_0274f660 .param/l "SEND" 0 3 104, C4<00000010000>;
+P_0274f680 .param/l "SEND_ACK" 0 3 110, C4<10000000000>;
+P_0274f6a0 .param/l "WAIT_ACK" 0 3 109, C4<01000000000>;
+P_0274f6c0 .param/l "WAIT_RESPONSE" 0 3 105, C4<00000100000>;
+v02733c38_0 .var "IO_enable_Phy_SD_CARD", 0 0;
+v0274f6e8_0 .var "NEXT_STATE", 10 0;
+v02743d38_0 .net "RESET_L", 0 0, v027415d8_0;  alias, 1 drivers
+v00033748_0 .net "SD_CLK", 0 0, v027416e0_0;  alias, 1 drivers
+v027402c8_0 .var "STATE", 10 0;
+v027400b8_0 .net "ack_IN_DATA_Phy", 0 0, v02741630_0;  alias, 1 drivers
+v027405e0_0 .var "ack_OUT_Phy_DATA", 0 0;
+v02740428_0 .var "blocks", 3 0;
+v02740168_0 .net "blocks_DATA_Phy", 3 0, v02741318_0;  alias, 1 drivers
+v02740378_0 .var "complete_Phy_DATA", 0 0;
+v027403d0_0 .net "dataFromFIFO_FIFO_Phy", 31 0, v02741738_0;  alias, 1 drivers
+v02740480_0 .var "dataParallel_Phy_PS", 31 0;
+v02740638_0 .var "dataReadToFIFO_Phy_FIFO", 31 0;
+v02740110_0 .net "data_read_SP_Phy", 31 0, v027413c8_0;  alias, 1 drivers
+v02740320_0 .var "data_timeout_Phy_DATA", 0 0;
+v02740270_0 .var "enable_pts_Wrapper_Phy_PS", 0 0;
+v027401c0_0 .var "enable_stp_Wrapper_Phy_SP", 0 0;
+v02740218_0 .net "idle_in_DATA_Phy", 0 0, v02741688_0;  alias, 1 drivers
+v02740060_0 .net "multiple_DATA_Phy", 0 0, v02741420_0;  alias, 1 drivers
+v027406e8_0 .var "pad_enable_Phy_PAD", 0 0;
+v027404d8_0 .var "pad_state_Phy_PAD", 0 0;
+v02740530_0 .var "readFIFO_enable_Phy_FIFO", 0 0;
+v0273ffb0_0 .net "reception_complete_SP_Phy", 0 0, v02741478_0;  alias, 1 drivers
+v02740588_0 .var "reset_Wrapper_Phy_PS", 0 0;
+v02740690_0 .var "serial_Ready_Phy_DATA", 0 0;
+v02740008_0 .net "strobe_IN_DATA_Phy", 0 0, v02740c38_0;  alias, 1 drivers
+v027414d0_0 .net "timeout_Reg_DATA_Phy", 15 0, v02740d98_0;  alias, 1 drivers
+v02741370_0 .var "timeout_input", 15 0;
+v027412c0_0 .net "transmission_complete_PS_Phy", 0 0, v02740c90_0;  alias, 1 drivers
+v02741528_0 .var "writeFIFO_enable_Phy_FIFO", 0 0;
+v02741580_0 .net "writeRead_DATA_Phy", 0 0, v02740978_0;  alias, 1 drivers
+E_02739ff8/0 .event edge, v027402c8_0, v02740008_0, v02741580_0, v027403d0_0;
+E_02739ff8/1 .event edge, v02741370_0, v027414d0_0, v0273ffb0_0, v02740428_0;
+E_02739ff8/2 .event edge, v02740060_0, v02740168_0, v02740110_0, v027400b8_0;
+E_02739ff8 .event/or E_02739ff8/0, E_02739ff8/1, E_02739ff8/2;
+E_02739c88 .event posedge, v00033748_0;
+S_02741798 .scope module, "DataTest" "probador" 2 54, 4 9 0, S_02735600;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "SD_CLK"
+    .port_info 1 /OUTPUT 1 "RESET_L"
+    .port_info 2 /OUTPUT 1 "strobe_IN_DATA_Phy"
+    .port_info 3 /OUTPUT 1 "ack_IN_DATA_Phy"
+    .port_info 4 /OUTPUT 16 "timeout_Reg_DATA_Phy"
+    .port_info 5 /OUTPUT 4 "blocks_DATA_Phy"
+    .port_info 6 /OUTPUT 1 "writeRead_DATA_Phy"
+    .port_info 7 /OUTPUT 1 "multiple_DATA_Phy"
+    .port_info 8 /OUTPUT 1 "idle_in_DATA_Phy"
+    .port_info 9 /OUTPUT 1 "transmission_complete_PS_Phy"
+    .port_info 10 /OUTPUT 1 "reception_complete_SP_Phy"
+    .port_info 11 /OUTPUT 32 "data_read_SP_Phy"
+    .port_info 12 /OUTPUT 32 "dataFromFIFO_FIFO_Phy"
+v027415d8_0 .var "RESET_L", 0 0;
+v027416e0_0 .var "SD_CLK", 0 0;
+v02741630_0 .var "ack_IN_DATA_Phy", 0 0;
+v02741318_0 .var "blocks_DATA_Phy", 3 0;
+v02741738_0 .var "dataFromFIFO_FIFO_Phy", 31 0;
+v027413c8_0 .var "data_read_SP_Phy", 31 0;
+v02741688_0 .var "idle_in_DATA_Phy", 0 0;
+v02741420_0 .var "multiple_DATA_Phy", 0 0;
+v02741478_0 .var "reception_complete_SP_Phy", 0 0;
+v02740c38_0 .var "strobe_IN_DATA_Phy", 0 0;
+v02740d98_0 .var "timeout_Reg_DATA_Phy", 15 0;
+v02740c90_0 .var "transmission_complete_PS_Phy", 0 0;
+v02740978_0 .var "writeRead_DATA_Phy", 0 0;
+    .scope S_02741798;
+T_0 ;
+    %delay 10000, 0;
+    %load/vec4 v027416e0_0;
+    %nor/r;
+    %store/vec4 v027416e0_0, 0, 1;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_02741798;
+T_1 ;
+    %vpi_call 4 34 "$dumpfile", "PhysicalTest.vcd" {0 0 0};
+    %vpi_call 4 35 "$dumpvars", 32'sb00000000000000000000000000000000, S_02735600 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v027416e0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v02740978_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v02740c38_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v02741630_0, 0, 1;
+    %pushi/vec4 100, 0, 16;
+    %store/vec4 v02740d98_0, 0, 16;
+    %pushi/vec4 15, 0, 4;
+    %store/vec4 v02741318_0, 0, 4;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v02741420_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v02741688_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v02740c90_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v02741478_0, 0, 1;
+    %pushi/vec4 3405695742, 0, 32;
+    %store/vec4 v027413c8_0, 0, 32;
+    %pushi/vec4 3405695742, 0, 32;
+    %store/vec4 v02741738_0, 0, 32;
+    %delay 50000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v027415d8_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v027415d8_0, 0, 1;
+    %delay 30000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v027415d8_0, 0, 1;
+    %vpi_call 4 59 "$display", "Aqui ya pasa a IDLE" {0 0 0};
+    %vpi_call 4 63 "$display", "Aqui ya pasa a load write, luego a send y wait response" {0 0 0};
+    %delay 100000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v02741478_0, 0, 1;
+    %delay 30000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v02741630_0, 0, 1;
+    %vpi_call 4 68 "$display", "manda el ack y devuelta a IDLE" {0 0 0};
+    %delay 200000, 0;
+    %vpi_call 4 76 "$display", "-----FIN------" {0 0 0};
+    %vpi_call 4 77 "$finish", 32'sb00000000000000000000000000000010 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_0003edf0;
+T_2 ;
+    %wait E_02739c88;
+    %load/vec4 v02743d38_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_2.0, 8;
+    %pushi/vec4 1, 0, 11;
+    %assign/vec4 v027402c8_0, 0;
+    %jmp T_2.1;
+T_2.0 ;
+    %load/vec4 v0274f6e8_0;
+    %assign/vec4 v027402c8_0, 0;
+T_2.1 ;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_0003edf0;
+T_3 ;
+    %wait E_02739ff8;
+    %load/vec4 v027402c8_0;
+    %dup/vec4;
+    %pushi/vec4 1, 0, 11;
+    %cmp/u;
+    %jmp/1 T_3.0, 6;
+    %dup/vec4;
+    %pushi/vec4 2, 0, 11;
+    %cmp/u;
+    %jmp/1 T_3.1, 6;
+    %dup/vec4;
+    %pushi/vec4 4, 0, 11;
+    %cmp/u;
+    %jmp/1 T_3.2, 6;
+    %dup/vec4;
+    %pushi/vec4 8, 0, 11;
+    %cmp/u;
+    %jmp/1 T_3.3, 6;
+    %dup/vec4;
+    %pushi/vec4 16, 0, 11;
+    %cmp/u;
+    %jmp/1 T_3.4, 6;
+    %dup/vec4;
+    %pushi/vec4 32, 0, 11;
+    %cmp/u;
+    %jmp/1 T_3.5, 6;
+    %dup/vec4;
+    %pushi/vec4 64, 0, 11;
+    %cmp/u;
+    %jmp/1 T_3.6, 6;
+    %dup/vec4;
+    %pushi/vec4 128, 0, 11;
+    %cmp/u;
+    %jmp/1 T_3.7, 6;
+    %dup/vec4;
+    %pushi/vec4 256, 0, 11;
+    %cmp/u;
+    %jmp/1 T_3.8, 6;
+    %dup/vec4;
+    %pushi/vec4 512, 0, 11;
+    %cmp/u;
+    %jmp/1 T_3.9, 6;
+    %dup/vec4;
+    %pushi/vec4 1024, 0, 11;
+    %cmp/u;
+    %jmp/1 T_3.10, 6;
+    %pushi/vec4 2, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+    %jmp T_3.12;
+T_3.0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v02740690_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v02740378_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v027405e0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v02740320_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v02740588_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v02740270_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v027401c0_0, 0, 1;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v02740480_0, 0, 32;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v027404d8_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v027406e8_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v02741528_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v02740530_0, 0, 1;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v02740638_0, 0, 32;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v02733c38_0, 0, 1;
+    %pushi/vec4 2, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+    %jmp T_3.12;
+T_3.1 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v02740690_0, 0, 1;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v02740428_0, 0, 4;
+    %pushi/vec4 0, 0, 16;
+    %store/vec4 v02741370_0, 0, 16;
+    %load/vec4 v02740008_0;
+    %load/vec4 v02741580_0;
+    %and;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_3.13, 8;
+    %pushi/vec4 4, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+    %jmp T_3.14;
+T_3.13 ;
+    %pushi/vec4 64, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+T_3.14 ;
+    %jmp T_3.12;
+T_3.2 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v02741528_0, 0, 1;
+    %load/vec4 v027403d0_0;
+    %store/vec4 v02740480_0, 0, 32;
+    %pushi/vec4 8, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+    %jmp T_3.12;
+T_3.3 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v02740270_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v02733c38_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v027404d8_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v027406e8_0, 0, 1;
+    %pushi/vec4 16, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+    %jmp T_3.12;
+T_3.4 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v02733c38_0, 0, 1;
+    %pushi/vec4 32, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+    %jmp T_3.12;
+T_3.5 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v02740270_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v027401c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v027404d8_0, 0, 1;
+    %load/vec4 v02741370_0;
+    %addi 1, 0, 16;
+    %store/vec4 v02741370_0, 0, 16;
+    %load/vec4 v02741370_0;
+    %load/vec4 v027414d0_0;
+    %cmp/e;
+    %jmp/0xz  T_3.15, 4;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v02740320_0, 0, 1;
+    %jmp T_3.16;
+T_3.15 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v02740320_0, 0, 1;
+T_3.16 ;
+    %load/vec4 v0273ffb0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_3.17, 8;
+    %load/vec4 v02740428_0;
+    %addi 1, 0, 4;
+    %store/vec4 v02740428_0, 0, 4;
+    %load/vec4 v02740060_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %load/vec4 v02740428_0;
+    %load/vec4 v02740168_0;
+    %cmp/e;
+    %flag_or 4, 8;
+    %jmp/0xz  T_3.19, 4;
+    %pushi/vec4 512, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+    %jmp T_3.20;
+T_3.19 ;
+    %pushi/vec4 4, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+T_3.20 ;
+    %jmp T_3.18;
+T_3.17 ;
+    %pushi/vec4 32, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+T_3.18 ;
+    %jmp T_3.12;
+T_3.6 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v027406e8_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v027404d8_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v027401c0_0, 0, 1;
+    %load/vec4 v02741370_0;
+    %addi 1, 0, 16;
+    %store/vec4 v02741370_0, 0, 16;
+    %load/vec4 v02741370_0;
+    %load/vec4 v027414d0_0;
+    %cmp/e;
+    %jmp/0xz  T_3.21, 4;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v02740320_0, 0, 1;
+    %jmp T_3.22;
+T_3.21 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v02740320_0, 0, 1;
+T_3.22 ;
+    %load/vec4 v0273ffb0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_3.23, 8;
+    %load/vec4 v02740428_0;
+    %addi 1, 0, 4;
+    %store/vec4 v02740428_0, 0, 4;
+    %pushi/vec4 128, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+    %jmp T_3.24;
+T_3.23 ;
+    %pushi/vec4 64, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+T_3.24 ;
+    %jmp T_3.12;
+T_3.7 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v02740530_0, 0, 1;
+    %load/vec4 v02740110_0;
+    %store/vec4 v02740638_0, 0, 32;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v027401c0_0, 0, 1;
+    %load/vec4 v02740428_0;
+    %load/vec4 v02740168_0;
+    %cmp/e;
+    %flag_mov 8, 4;
+    %load/vec4 v02740060_0;
+    %nor/r;
+    %flag_set/vec4 9;
+    %flag_or 9, 8;
+    %jmp/0xz  T_3.25, 9;
+    %pushi/vec4 512, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+    %jmp T_3.26;
+T_3.25 ;
+    %pushi/vec4 256, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+T_3.26 ;
+    %jmp T_3.12;
+T_3.8 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v02740588_0, 0, 1;
+    %pushi/vec4 64, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+    %jmp T_3.12;
+T_3.9 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v02740378_0, 0, 1;
+    %load/vec4 v027400b8_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_3.27, 8;
+    %pushi/vec4 1024, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+    %jmp T_3.28;
+T_3.27 ;
+    %pushi/vec4 512, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+T_3.28 ;
+    %jmp T_3.12;
+T_3.10 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v027405e0_0, 0, 1;
+    %pushi/vec4 2, 0, 11;
+    %store/vec4 v0274f6e8_0, 0, 11;
+    %jmp T_3.12;
+T_3.12 ;
+    %pop/vec4 1;
+    %jmp T_3;
+    .thread T_3, $push;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "testfisico.v";
+    "./DATA_PHYSICAL.v";
+    "./probadorPhysical.v";
