@@ -54,7 +54,9 @@ module SD_host (clk_host, reset_host, io_enable_cmd, CMD_PIN_IN, CMD_PIN_OUT, cl
     assign timeout_enable_Regs_DATA = bloque_registers.timeout_enable;
 
     //wire entre DMA y DATA
-
+    wire New_DAT_DMA_DATA;
+    wire transfer_complete_DATA_DMA;
+    
 
     CMD bloque_CMD(clk_host, reset_host, new_command, cmd_argument, cmd_index, cmd_complete, cmd_index_error, response, CMD_PIN_OUT, IO_enable_pin, CMD_PIN_IN, clk_SD);
     REG bloque_registers(clk_host, rw_register, addres_register, data_in_register, data_out_register);
@@ -71,12 +73,12 @@ module SD_host (clk_host, reset_host, io_enable_cmd, CMD_PIN_IN, CMD_PIN_OUT, cl
     .timeout_enable_Regs_DATA(timeout_enable_Regs_DATA),
     //.FIFO_OK_FIFO_DATA(),
     //.[31:0] dataFromFIFO_FIFO_Phy(),
-    //.New_DAT_DMA_DATA(),
+    .New_DAT_DMA_DATA(New_DAT_DMA_DATA),
     //.DATA_PIN_IN(DATA_PIN_IN),
     //.writeFIFO_enable_Phy_FIFO(),
     //.readFIFO_enable_Phy_FIFO(),
     //.[31:0] dataReadToFIFO_Phy_FIFO(),
-    //.transfer_complete_DATA_DMA(),
+    .transfer_complete_DATA_DMA(transfer_complete_DATA_DMA),
     .IO_enable_Phy_SD_CARD(IO_enable_Phy_SD_CARD),
     .DATA_PIN_OUT(DATA_PIN_OUT),
     .pad_state_Phy_PAD(pad_state_Phy_PAD),
