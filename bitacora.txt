@@ -131,7 +131,14 @@
 	Combinanción de los bloques de SD Host.
 		presentes:
 			Cristian
-                        Mario
+            Mario
 			Alonso
-
+8 de diciembre de 2016
+	Definición de bancos de pruebas para el SD Host y revisión de detalles finales
+	Creación de la presentación de grupo
+	Simulación de máquinas de estados
+	
+		presentes:
+			Cristian
+			Mario
 

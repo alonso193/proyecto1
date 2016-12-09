@@ -112,8 +112,8 @@ parameter SEND_ACK               = 11'b10000000000;
 //registros internos de interés
 reg [15:0] timeout_input;
 reg [3:0] blocks;
-reg STATE;
-reg NEXT_STATE;
+reg [10:0] STATE;
+reg [10:0] NEXT_STATE;
 
 
 //Inicializar, en el estado IDLE, los contadores para timeout_Reg_DATA_Phy y bloques

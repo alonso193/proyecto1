@@ -80,8 +80,8 @@ parameter CHECK_FIFO             = 6'b001000;
 parameter TRANSMIT               = 6'b010000;
 parameter ACK                    = 6'b100000;
 
-reg STATE;
-reg NEXT_STATE;
+reg [5:0] STATE;
+reg [5:0] NEXT_STATE;
 
 //NEXT_STATE logic (always_ff)
 always @ (posedge CLK)

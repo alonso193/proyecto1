@@ -1,0 +1,361 @@
+$date
+	Thu Dec 08 18:57:07 2016
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module testbench $end
+$var wire 1 ! writeRead_Regs_DATA $end
+$var wire 1 " writeReadPhysical_DATA_Phy $end
+$var wire 1 # transfer_complete_DATA_DMA $end
+$var wire 16 $ timeout_value_DATA_Phy [15:0] $end
+$var wire 16 % timeout_Reg_Regs_DATA [15:0] $end
+$var wire 1 & timeout_Phy_DATA $end
+$var wire 1 ' timeout_Enable_Regs_DATA $end
+$var wire 1 ( strobe_OUT_DATA_Phy $end
+$var wire 1 ) serial_Ready_Phy_DATA $end
+$var wire 1 * new_DAT_DMA_DATA $end
+$var wire 1 + multiple_DATA_Phy $end
+$var wire 1 , multipleData_Regs_DATA $end
+$var wire 1 - idle_out_DATA_Phy $end
+$var wire 1 . fifo_OK_FIFO_DATA $end
+$var wire 1 / complete_Phy_DATA $end
+$var wire 4 0 blocks_DATA_Phy [3:0] $end
+$var wire 4 1 blockCount_Regs_DATA [3:0] $end
+$var wire 1 2 ack_OUT_DATA_Phy $end
+$var wire 1 3 ack_IN_Phy_DATA $end
+$var wire 1 4 RESET_L $end
+$var wire 1 5 CLK $end
+$scope module DATA_CONTROL $end
+$var wire 1 ! writeRead_Regs_DATA $end
+$var wire 16 6 timeout_Reg_Regs_DATA [15:0] $end
+$var wire 1 & timeout_Phy_DATA $end
+$var wire 1 ' timeout_Enable_Regs_DATA $end
+$var wire 1 ) serial_Ready_Phy_DATA $end
+$var wire 1 * new_DAT_DMA_DATA $end
+$var wire 1 , multipleData_Regs_DATA $end
+$var wire 1 . fifo_OK_FIFO_DATA $end
+$var wire 1 / complete_Phy_DATA $end
+$var wire 4 7 blockCount_Regs_DATA [3:0] $end
+$var wire 1 3 ack_IN_Phy_DATA $end
+$var wire 1 4 RESET_L $end
+$var wire 1 5 CLK $end
+$var reg 6 8 NEXT_STATE [5:0] $end
+$var reg 6 9 STATE [5:0] $end
+$var reg 1 2 ack_OUT_DATA_Phy $end
+$var reg 4 : blocks_DATA_Phy [3:0] $end
+$var reg 1 - idle_out_DATA_Phy $end
+$var reg 1 + multiple_DATA_Phy $end
+$var reg 1 ( strobe_OUT_DATA_Phy $end
+$var reg 16 ; timeout_value_DATA_Phy [15:0] $end
+$var reg 1 # transfer_complete_DATA_DMA $end
+$var reg 1 " writeReadPhysical_DATA_Phy $end
+$upscope $end
+$scope module DataTest $end
+$var reg 1 5 CLK $end
+$var reg 1 4 RESET_L $end
+$var reg 1 3 ack_IN_Phy_DATA $end
+$var reg 4 < blockCount_Regs_DATA [3:0] $end
+$var reg 1 / complete_Phy_DATA $end
+$var reg 1 . fifo_OK_FIFO_DATA $end
+$var reg 1 , multipleData_Regs_DATA $end
+$var reg 1 * new_DAT_DMA_DATA $end
+$var reg 1 ) serial_Ready_Phy_DATA $end
+$var reg 1 ' timeout_Enable_Regs_DATA $end
+$var reg 1 & timeout_Phy_DATA $end
+$var reg 16 = timeout_Reg_Regs_DATA [15:0] $end
+$var reg 1 ! writeRead_Regs_DATA $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1100100 =
+b1111 <
+bx ;
+bx :
+bx 9
+b1 8
+b1111 7
+b1100100 6
+05
+x4
+x3
+x2
+b1111 1
+bx 0
+0/
+0.
+x-
+0,
+x+
+0*
+0)
+x(
+x'
+x&
+b1100100 %
+bx $
+x#
+x"
+1!
+$end
+#5000
+b10 8
+0-
+0+
+0"
+b0 $
+b0 ;
+b0 0
+b0 :
+02
+0(
+0#
+b1 9
+15
+#10000
+05
+#15000
+1-
+b10 9
+15
+#20000
+05
+#25000
+15
+#30000
+05
+#35000
+15
+#40000
+05
+#45000
+15
+#50000
+05
+14
+#55000
+15
+#60000
+05
+04
+#65000
+0-
+b1 9
+15
+#70000
+05
+#75000
+15
+#80000
+05
+#85000
+15
+#90000
+05
+14
+#95000
+1-
+b10 9
+15
+#100000
+05
+#105000
+15
+#110000
+05
+#115000
+15
+#120000
+05
+#125000
+15
+#130000
+05
+#135000
+15
+#140000
+b100 8
+05
+1*
+#145000
+1"
+b1100100 $
+b1100100 ;
+b1111 0
+b1111 :
+b100 9
+15
+#150000
+05
+#155000
+15
+#160000
+05
+#165000
+15
+#170000
+05
+#175000
+15
+#180000
+05
+#185000
+15
+#190000
+05
+#195000
+15
+#200000
+05
+#205000
+15
+#210000
+05
+#215000
+15
+#220000
+05
+#225000
+15
+#230000
+05
+#235000
+15
+#240000
+b1000 8
+05
+1)
+#245000
+b1000 9
+15
+#250000
+05
+#255000
+15
+#260000
+05
+#265000
+15
+#270000
+05
+#275000
+15
+#280000
+05
+#285000
+15
+#290000
+b10000 8
+05
+1.
+#295000
+1(
+b10000 9
+15
+#300000
+05
+#305000
+15
+#310000
+05
+#315000
+15
+#320000
+05
+#325000
+15
+#330000
+05
+#335000
+15
+#340000
+b100000 8
+05
+1/
+#345000
+12
+b100000 9
+15
+#350000
+05
+#355000
+15
+#360000
+05
+#365000
+15
+#370000
+05
+#375000
+15
+#380000
+05
+#385000
+15
+#390000
+05
+#395000
+15
+#400000
+05
+#405000
+15
+#410000
+05
+#415000
+15
+#420000
+05
+#425000
+15
+#430000
+05
+#435000
+15
+#440000
+05
+#445000
+15
+#450000
+05
+#455000
+15
+#460000
+05
+#465000
+15
+#470000
+05
+#475000
+15
+#480000
+05
+#485000
+15
+#490000
+05
+#495000
+15
+#500000
+05
+#505000
+15
+#510000
+05
+#515000
+15
+#520000
+05
+#525000
+15
+#530000
+05
+#535000
+15
+#540000
+05

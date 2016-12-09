@@ -1,0 +1,42 @@
+[*]
+[*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
+[*] Thu Dec  8 17:09:10 2016
+[*]
+[dumpfile] "/media/sf_CD2/Proyecto1/proyecto1/Pruebas/DATA_SD/testDATA.vcd"
+[dumpfile_mtime] "Thu Dec  8 17:05:15 2016"
+[dumpfile_size] 3708
+[savefile] "/media/sf_CD2/Proyecto1/proyecto1/Pruebas/DATA_SD/DATA_waves.gtkw"
+[timestart] 123300
+[size] 1199 586
+[pos] -1 -1
+*-14.601183 60000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testbench.
+[sst_width] 223
+[signals_width] 254
+[sst_expanded] 1
+[sst_vpaned_height] 147
+@28
+testbench.DATA_CONTROL.CLK
+[color] 2
+testbench.DATA_CONTROL.RESET_L
+[color] 3
+testbench.DATA_CONTROL.STATE[5:0]
+testbench.DATA_CONTROL.NEXT_STATE[5:0]
+@29
+[color] 3
+testbench.DATA_CONTROL.new_DAT_DMA_DATA
+@28
+[color] 3
+testbench.DATA_CONTROL.idle_out_DATA_Phy
+testbench.DATA_CONTROL.multiple_DATA_Phy
+testbench.DATA_CONTROL.writeReadPhysical_DATA_Phy
+@24
+testbench.DATA_CONTROL.timeout_value_DATA_Phy[15:0]
+@22
+testbench.DATA_CONTROL.blocks_DATA_Phy[3:0]
+@28
+testbench.DATA_CONTROL.ack_OUT_DATA_Phy
+testbench.DATA_CONTROL.strobe_OUT_DATA_Phy
+testbench.DATA_CONTROL.transfer_complete_DATA_DMA
+[pattern_trace] 1
+[pattern_trace] 0
