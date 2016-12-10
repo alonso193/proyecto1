@@ -1,0 +1,20 @@
+read_verilog ./BloqueDATA.v
+hierarchy; proc; opt; techmap; opt
+dfflibmap -liberty ./sintetizado/cmos_cells.lib
+abc -liberty ./sintetizado/cmos_cells.lib
+write_verilog -noattr ./sintetizado/DATAblock.v
+
+read_verilog ./CMD.v
+hierarchy; proc; opt; techmap; opt
+dfflibmap -liberty ./sintetizado/cmos_cells.lib
+abc -liberty ./sintetizado/cmos_cells.lib
+write_verilog -noattr ./sintetizado/CMDblock.v
+
+read_verilog ./DMA.v
+hierarchy; proc; opt; techmap; opt
+dfflibmap -liberty ./sintetizado/cmos_cells.lib
+abc -liberty ./sintetizado/cmos_cells.lib
+write_verilog -noattr ./sintetizado/DMAblock.v
+
+
+

@@ -1,0 +1,40 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Fri Dec 09 06:09:22 2016
+[*]
+[dumpfile] "C:\Users\Mario\Documents\U\CD2\Proyecto1\proyecto1\Pruebas\DATA_SD\PhysicalTest.vcd"
+[dumpfile_mtime] "Fri Dec 09 06:08:53 2016"
+[dumpfile_size] 4918
+[savefile] "C:\Users\Mario\Documents\U\CD2\Proyecto1\proyecto1\Pruebas\DATA_SD\Phy_waves.gtkw"
+[timestart] 102800
+[size] 1366 705
+[pos] -1 -1
+*-15.158524 204200 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testbench.
+[sst_width] 240
+[signals_width] 328
+[sst_expanded] 1
+[sst_vpaned_height] 190
+@28
+testbench.DATAPhy.SD_CLK
+testbench.DATAPhy.RESET_L
+[color] 3
+testbench.DATAPhy.STATE[10:0]
+[color] 7
+testbench.DATAPhy.NEXT_STATE[10:0]
+@23
+[color] 1
+testbench.DATAPhy.dataParallel_Phy_PS[31:0]
+@22
+[color] 1
+testbench.DATAPhy.dataFromFIFO_FIFO_Phy[31:0]
+@28
+testbench.DATAPhy.writeRead_DATA_Phy
+@22
+[color] 5
+testbench.DATAPhy.dataReadToFIFO_Phy_FIFO[31:0]
+@28
+testbench.DATAPhy.ack_OUT_Phy_DATA
+testbench.DATAPhy.ack_IN_DATA_Phy
+[pattern_trace] 1
+[pattern_trace] 0
